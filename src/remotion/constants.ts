@@ -18,6 +18,8 @@ export type IntroProps = {
   accentColor: string;
   /** Warna aksen kedua untuk gradasi (hex) */
   accentColor2: string;
+  /** Tampilkan subtitle auto-caption (sinkron narasi TTS) */
+  showSubtitle: boolean;
 };
 
 export const defaultIntroProps: IntroProps = {
@@ -27,4 +29,5 @@ export const defaultIntroProps: IntroProps = {
   ctaText: 'SUBSCRIBE SEKARANG',
   accentColor: '#8b5cf6',
   accentColor2: '#3b82f6',
+  showSubtitle: true,
 };

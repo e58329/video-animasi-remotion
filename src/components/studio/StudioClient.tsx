@@ -2,11 +2,12 @@
 
 import { useState } from 'react';
 import dynamic from 'next/dynamic';
-import { Check, Copy, Github, Palette, RotateCcw, Terminal, Type } from 'lucide-react';
+import { Check, Copy, Github, Palette, RotateCcw, Subtitles, Terminal, Type } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { Switch } from '@/components/ui/switch';
 import {
   DURATION_IN_FRAMES,
   FPS,
@@ -43,7 +44,7 @@ export function StudioClient() {
   const [props, setProps] = useState<IntroProps>(defaultIntroProps);
   const [copied, setCopied] = useState(false);
 
-  const update = (key: keyof IntroProps, value: string) =>
+  const update = (key: keyof IntroProps, value: string | boolean) =>
     setProps((prev) => ({ ...prev, [key]: value }));
 
   const activePreset = PRESETS.find(
@@ -189,6 +190,29 @@ export function StudioClient() {
                     placeholder="SUBSCRIBE SEKARANG"
                   />
                 </div>
+              </div>
+            </div>
+
+            {/* Narasi & subtitle */}
+            <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-5">
+              <div className="mb-4 flex items-center gap-2">
+                <Subtitles className="h-4 w-4 text-violet-400" aria-hidden="true" />
+                <h2 className="text-sm font-semibold">Narasi & Subtitle</h2>
+              </div>
+              <div className="flex items-center justify-between gap-4">
+                <div className="space-y-0.5">
+                  <Label htmlFor="showSubtitle" className="text-slate-300">
+                    Subtitle otomatis
+                  </Label>
+                  <p className="text-xs text-slate-500">
+                    Caption per kata, nyala sinkron dengan suara TTS
+                  </p>
+                </div>
+                <Switch
+                  id="showSubtitle"
+                  checked={props.showSubtitle}
+                  onCheckedChange={(v) => update('showSubtitle', v)}
+                />
               </div>
             </div>
 

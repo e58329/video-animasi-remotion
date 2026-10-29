@@ -4,6 +4,7 @@ import { AnimatedBackground } from './components/AnimatedBackground';
 import { WelcomeScene } from './components/WelcomeScene';
 import { LogoScene } from './components/LogoScene';
 import { TaglineScene } from './components/TaglineScene';
+import { Captions } from './components/Captions';
 import { FONT_STACK } from './fonts';
 import type { IntroProps } from './constants';
 
@@ -57,6 +58,9 @@ export const IntroPromo: React.FC<IntroProps> = (props) => {
           accentColor2={accentColor2}
         />
       </Sequence>
+
+      {/* Subtitle karaoke per kata — sinkron dengan narasi TTS (bisa dimatikan) */}
+      {props.showSubtitle && <Captions accentColor={accentColor} accentColor2={accentColor2} />}
 
       <FadeOutOverlay />
     </AbsoluteFill>
