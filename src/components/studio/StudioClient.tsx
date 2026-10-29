@@ -35,6 +35,7 @@ const stats = [
   { label: 'Frame Rate', value: `${FPS} fps` },
   { label: 'Durasi', value: `${(DURATION_IN_FRAMES / FPS).toFixed(1)} dtk` },
   { label: 'Total Frame', value: `${DURATION_IN_FRAMES}` },
+  { label: 'Narasi', value: 'Ardi TTS (pitch -20%)' },
 ];
 
 export function StudioClient() {

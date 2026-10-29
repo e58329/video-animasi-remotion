@@ -1,5 +1,5 @@
 import React from 'react';
-import { AbsoluteFill, Sequence, interpolate, useCurrentFrame } from 'remotion';
+import { AbsoluteFill, Audio, Sequence, staticFile, interpolate, useCurrentFrame } from 'remotion';
 import { AnimatedBackground } from './components/AnimatedBackground';
 import { WelcomeScene } from './components/WelcomeScene';
 import { LogoScene } from './components/LogoScene';
@@ -24,6 +24,10 @@ const FadeOutOverlay: React.FC = () => {
  *   0-85    : Scene 1 — teks sambutan (slide-up + blur per kata)
  *   78-172  : Scene 2 — reveal logo heksagon + nama channel per huruf
  *   162-240 : Scene 3 — tagline + tombol CTA spring
+ *
+ * Audio : narasi TTS gratis (Microsoft Edge TTS, voice id-ID-ArdiNeural
+ *         dengan pitch diturunkan ~20% gaya narator dokumenter).
+ *         Mulai di frame 12 (0.4s) agar ada jeda napas natural.
  */
 export const IntroPromo: React.FC<IntroProps> = (props) => {
   const { accentColor, accentColor2 } = props;
@@ -31,6 +35,11 @@ export const IntroPromo: React.FC<IntroProps> = (props) => {
   return (
     <AbsoluteFill style={{ backgroundColor: '#070b16', fontFamily: FONT_STACK }}>
       <AnimatedBackground accentColor={accentColor} accentColor2={accentColor2} />
+
+      {/* Narasi TTS gaya dokumenter — mulai 0.4 detik setelah video mulai */}
+      <Sequence from={12}>
+        <Audio src={staticFile('narration.mp3')} />
+      </Sequence>
 
       <Sequence from={0} durationInFrames={86}>
         <WelcomeScene welcomeText={props.welcomeText} accentColor={accentColor} accentColor2={accentColor2} />

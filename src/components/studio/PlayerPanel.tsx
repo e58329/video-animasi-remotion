@@ -21,7 +21,6 @@ const PlayerPanel: React.FC<{ inputProps: IntroProps }> = ({ inputProps }) => {
       controls
       loop
       autoPlay
-      muted
       acknowledgeRemotionLicense
       style={{ width: '100%', height: '100%' }}
     />
