@@ -1,0 +1,28 @@
+]633;E;pip list 2> /dev/null;347423ce-20f9-4f95-937b-ba81f303be9d]633;Cav                        19.0.2
+ctranslate2               4.8.4
+faster-whisper            1.2.1
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    import av,inspect; print(av.__version__); print(inspect.signature(av.open))
+                                                    ~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/usr/local/python/3.14.2/lib/python3.14/inspect.py", line 3321, in signature
+    return Signature.from_callable(obj, follow_wrapped=follow_wrapped,
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                                   globals=globals, locals=locals, eval_str=eval_str,
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                                   annotation_format=annotation_format)
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.14.2/lib/python3.14/inspect.py", line 3036, in from_callable
+    return _signature_from_callable(obj, sigcls=cls,
+                                    follow_wrapper_chains=follow_wrapped,
+                                    globals=globals, locals=locals, eval_str=eval_str,
+                                    annotation_format=annotation_format)
+  File "/usr/local/python/3.14.2/lib/python3.14/inspect.py", line 2517, in _signature_from_callable
+    return _signature_from_builtin(sigcls, obj,
+                                   skip_bound_arg=skip_bound_arg)
+  File "/usr/local/python/3.14.2/lib/python3.14/inspect.py", line 2301, in _signature_from_builtin
+    raise ValueError("no signature found for builtin {!r}".format(func))
+ValueError: no signature found for builtin <built-in function open>
+19.0.2
+/usr/bin/ffmpeg
+ffmpeg version 6.1.1-3ubuntu5 Copyright (c) 2000-2023 the FFmpeg developers

@@ -1,0 +1,141 @@
+=== src/VideoSinematik.tsx ===
+import React, { useEffect, useState } from "react";
+import {
+  AbsoluteFill,
+  Audio,
+  staticFile,
+  useCurrentFrame,
+  interpolate,
+  spring,
+  useVideoConfig,
+} from "remotion";
+
+type WhisperWord = {
+  text: string;
+  start: number; // dalam detik
+  end: number;   // dalam detik
+};
+
+export const VideoSinematik: React.FC = () => {
+  const frame = useCurrentFrame();
+  const { fps, durationInFrames } = useVideoConfig();
+  const [words, setWords] = useState<WhisperWord[]>([]);
+
+  useEffect(() => {
+    fetch(staticFile("audio/narasi-whisper.json"))
+      .then((res) => res.json())
+      .then((data) => setWords(data))
+      .catch((err) => console.error("Gagal load subtitle Whisper:", err));
+  }, []);
+
+  const cameraZoom = interpolate(frame, [0, durationInFrames], [1, 1.4]);
+  const cameraPanX = interpolate(frame, [0, durationInFrames], [-30, 30]);
+
+  return (
+    <AbsoluteFill style={{ backgroundColor: "#000", overflow: "hidden" }}>
+      <Audio src={staticFile("audio/narasi-ardi.mp3")} />
+
+      {/* BACKGROUND */}
+      <AbsoluteFill style={{ perspective: "1000px" }}>
+        <div
+          style={{
+            width: "120%",
+            height: "120%",
+            position: "absolute",
+            top: "-10%",
+            left: "-10%",
+            backgroundImage: "url(https://images.unsplash.com/photo-1551244072-5d12893278ab?q=80&w=2000)",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            transform: `translateZ(0px) scale(${cameraZoom}) translateX(${cameraPanX}px)`,
+            filter: "brightness(0.4) contrast(1.2) hue-rotate(200deg)",
+          }}
+        />
+      </AbsoluteFill>
+
+      {/* VIGNETTE */}
+      <AbsoluteFill style={{ background: "radial-gradient(circle, rgba(0,0,0,0) 40%, rgba(0,0,0,0.9) 100%)" }} />
+
+      {/* SUBTITLE KARAOKE (dari faster-whisper) */}
+      <AbsoluteFill style={{ justifyContent: "flex-end", alignItems: "center", paddingBottom: 150 }}>
+        {words.map((word, index) => {
+          // Konversi detik ke frame
+          const startFrame = word.start * fps;
+          const endFrame = word.end * fps;
+
+          const isActive = frame >= startFrame && frame <= endFrame;
+          const popScale = isActive
+            ? spring({ frame: frame - startFrame, fps, config: { damping: 10, stiffness: 200 } })
+            : 1;
+
+          // Sembunyikan kata yang belum waktunya muncul
+          if (frame < startFrame - 2) return null;
+
+          return (
+            <div
+              key={index}
+              style={{
+                position: "absolute",
+                fontFamily: "Arial, sans-serif",
+                fontSize: 70,
+                fontWeight: 900,
+                textTransform: "uppercase",
+                color: isActive ? "#00FFFF" : "rgba(255, 255, 255, 0.6)",
+                textShadow: isActive
+                  ? "0px 0px 20px #00FFFF, 0px 4px 10px rgba(0,0,0,0.9)"
+                  : "0px 4px 10px rgba(0,0,0,0.9)",
+                transform: `scale(${popScale})`,
+              }}
+            >
+              {word.text}
+            </div>
+          );
+        })}
+      </AbsoluteFill>
+    </AbsoluteFill>
+  );
+};
+
+=== src/scenes/Scene1.tsx ===
+import React from "react";
+import { AbsoluteFill } from "remotion";
+import { AnimatedText } from "../engine/components/Text";
+
+export const Scene1 = () => (
+  <AbsoluteFill style={{ justifyContent: "center", alignItems: "center" }}>
+    <AnimatedText text="Welcome to Remotion Engine" />
+  </AbsoluteFill>
+);
+
+=== src/scenes/Scene2.tsx ===
+import React from "react";
+import { AbsoluteFill, useCurrentFrame, useVideoConfig } from "remotion";
+import { MorphingCircle } from "../engine/components/Shapes";
+import { useSpringValue } from "../engine/animations/Spring";
+
+export const Scene2 = () => {
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  const springVal = useSpringValue(frame, fps);
+
+  return (
+    <AbsoluteFill style={{ justifyContent: "center", alignItems: "center" }}>
+      <div style={{ transform: `scale(${springVal})` }}>
+        <MorphingCircle />
+      </div>
+    </AbsoluteFill>
+  );
+};
+
+=== src/data/edukasi.json ===
+{
+  "judul": "Cara Kerja Kapal Selam",
+  "subtitle": "Prinsip Archimedes mengatur daya apung kapal.",
+  "gambar_aset": "kapal_selam.svg",
+  "warna_tema": "#0077b6"
+}
+
+=== src/data/naskah.txt ===
+Di ketinggian tiga puluh lima ribu kilometer di atas kepala kita, terdapat sebuah mesin raksasa. Jika sedikit saja salah hitung, ia akan terlempar ke luar angkasa atau terbakar di atmosfer. Bagaimana manusia menaklukkan gravitasi? Roket terbang dengan melemparkan gas panas ke bawah. Lalu, satelit jatuh bebas, tapi kecepatannya membuatnya terus melingkari bumi.
+
+=== words.json ===
