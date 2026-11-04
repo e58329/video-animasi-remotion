@@ -7,6 +7,7 @@ KANAL = "Yakali Lu Tau"
 DURASI_MIN = 8 * 60
 KATA_PER_DETIK = 2.05
 JEDA_SCENE = 1.0
+BATAS_POTONGAN = 90
 
 
 def kunci_dari(path, awal):
@@ -100,6 +101,22 @@ def main():
             peringatan.append(f"BRIEF.md masih punya {sisa} bagian [ISI] yang kosong")
     else:
         peringatan.append("BRIEF.md belum ada (salin dari templat/BRIEF.md)")
+
+    for k, p in enumerate(data.get("potongan", []), start=1):
+        nomor = p.get("scenes", [])
+        salah = [n for n in nomor if not isinstance(n, int) or not 1 <= n <= len(scenes)]
+        if not nomor or salah:
+            galat.append(f"Potongan {k}: nomor scene tidak valid {salah or '(kosong)'}, tersedia 1 sampai {len(scenes)}")
+            continue
+        detik = sum(len(scenes[n - 1].get("teks", "").split()) / KATA_PER_DETIK + 0.5 for n in nomor)
+        if p.get("cta"):
+            detik += len(p["cta"].split()) / KATA_PER_DETIK + 0.3
+        else:
+            peringatan.append(f"Potongan {k} ('{p.get('nama', '')}') tanpa 'cta' (ajakan menonton video lengkap)")
+        if detik > BATAS_POTONGAN:
+            peringatan.append(f"Potongan {k} ('{p.get('nama', '')}') perkiraan {detik:.0f} detik, di atas {BATAS_POTONGAN} detik")
+        if detik < 15:
+            peringatan.append(f"Potongan {k} ('{p.get('nama', '')}') hanya {detik:.0f} detik, terlalu pendek")
 
     print(f"Scene: {len(scenes)}, kata: {total_kata}, perkiraan durasi: {durasi_perkiraan / 60:.1f} menit")
     for g in galat:

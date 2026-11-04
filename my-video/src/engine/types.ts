@@ -22,7 +22,10 @@ export type SceneData = {
   kata: Kata[];
 };
 
+export type Potongan = { nama: string; scenes: number[]; cta?: SceneData };
+
 export type TopikData = {
+  potongan?: Potongan[];
   judul: string;
   subjudul?: string;
   musik?: string;

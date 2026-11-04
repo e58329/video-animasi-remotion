@@ -27,3 +27,9 @@ klik pop transisi transisi2 sukses konfirmasi error tetes tetes2 semprot kaca ge
 - bab_dari_video.py: bab YouTube dari video yang sudah jadi (cadangan)
 - pasang_sfx.sh: memasang 20 SFX Kenney (CC0) ke public/sfx
 - templat/BRIEF.md: salin ke BRIEF.md tiap video baru, isi bagian [ISI]
+
+## Format vertikal (TikTok, Reels, Shorts)
+- Komposisi "Vertikal" (1080x1920), zona aman di src/engine/zona.ts
+- topik.json: "potongan": [{ "nama": "hook", "scenes": [1,2,3], "cta": "kalimat ajakan menonton video lengkap" }]
+- Urutan: buat_video.py lalu buat_potongan.py; render.sh merender tiap potongan jadi out/NAMA-potongan.mp4
+- Pratinjau di Studio: pilih komposisi Vertikal (potongan pertama), atau ubah props potongan
