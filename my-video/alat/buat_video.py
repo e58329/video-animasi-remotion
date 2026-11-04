@@ -36,8 +36,11 @@ def kata_whisper(model, path):
     return [(w.word.strip(), w.start, w.end) for s in segmen for w in s.words]
 
 
+def norm(x):
+    return re.sub(r"[^\w]", "", x.lower())
+
+
 def selaraskan(kata_naskah, kw, durasi):
-    norm = lambda x: re.sub(r"[^\w]", "", x.lower())
     a = [norm(x) for x in kata_naskah]
     b = [norm(w[0]) for w in kw]
     waktu = [None] * len(a)
@@ -69,6 +72,22 @@ def selaraskan(kata_naskah, kw, durasi):
     return waktu
 
 
+def bandingkan(kata_naskah, kw):
+    a = [norm(x) for x in kata_naskah]
+    b = [norm(w[0]) for w in kw]
+    sm = difflib.SequenceMatcher(None, a, b, autojunk=False)
+    cocok = sum(blok.size for blok in sm.get_matching_blocks())
+    beda = []
+    for tag, i1, i2, j1, j2 in sm.get_opcodes():
+        if tag in ("equal", "insert"):
+            continue
+        naskah = kata_naskah[i1:i2]
+        if any(re.search(r"\d", x) for x in naskah):
+            continue
+        beda.append((" ".join(naskah), " ".join(w[0] for w in kw[j1:j2])))
+    return beda, (cocok / len(a) if a else 1.0)
+
+
 async def sintesis(teks, path, suara):
     c = edge_tts.Communicate(teks, suara["voice"], rate=suara["rate"], pitch=suara["pitch"])
     await c.save(path)
@@ -84,6 +103,8 @@ def main():
 
     model = WhisperModel("small", device="cpu", compute_type="int8")
     scenes = []
+    laporan = []
+    perlu = []
     for i, sc in enumerate(topik["scenes"], start=1):
         path = f"{FOLDER_AUDIO}/scene-{i}.mp3"
         asyncio.run(sintesis(sc["teks"], path, suara))
@@ -95,6 +116,15 @@ def main():
             print(f"  Whisper gagal di scene {i} ({e}), pakai perkiraan waktu")
             kw = []
         waktu = selaraskan(kata_naskah, kw, d)
+        if kw:
+            beda, persen = bandingkan(kata_naskah, kw)
+            laporan.append(f"Scene {i}: cocok {persen * 100:.0f}%")
+            for n_, h_ in beda[:8]:
+                laporan.append(f'  ! naskah "{n_}" -> terdengar "{h_ or "(tidak terdengar)"}"')
+            if len(beda) >= 3 or persen < 0.8:
+                perlu.append(i)
+        else:
+            laporan.append(f"Scene {i}: pengecekan suara dilewati (Whisper gagal)")
         scenes.append(
             {
                 "visual": sc.get("visual", "abstrak"),
@@ -120,7 +150,11 @@ def main():
         "scenes": scenes,
     }
     json.dump(data, open(KELUAR, "w", encoding="utf-8"), indent=2, ensure_ascii=False)
-    print(f"Selesai. Data video ada di {KELUAR}")
+    ringkas = "Scene yang perlu didengar ulang: " + (", ".join(map(str, perlu)) if perlu else "tidak ada")
+    laporan.append(ringkas)
+    open("laporan-suara.txt", "w", encoding="utf-8").write("\n".join(laporan) + "\n")
+    print("\n".join(l for l in laporan if l.startswith("  !") or l.startswith("Scene yang")))
+    print(f"Selesai. Data video ada di {KELUAR} (rincian suara: laporan-suara.txt)")
 
 
 if __name__ == "__main__":

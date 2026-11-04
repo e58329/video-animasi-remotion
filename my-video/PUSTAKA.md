@@ -18,3 +18,12 @@ Muncul, Ketik, Hitung, Denyut, Garis, useProgres, formatAngka
 
 ## SFX (public/sfx, katalog src/engine/sfx.ts, lisensi CC0 Kenney)
 klik pop transisi transisi2 sukses konfirmasi error tetes tetes2 semprot kaca geser tombol tick pluck pertanyaan glitch buka tutup bong
+
+## Alat (alat/)
+- periksa.py: gerbang naskah sebelum pipeline (visual, sfx, angka, ajakan berlangganan, brief). Pakai: python alat/periksa.py topik.json
+- buat_video.py: suara, timing kata, dan laporan salah ucap (laporan-suara.txt)
+- cek.py: QA dari file render (loudness, layar hitam, gambar beku, hening, durasi, kontak.jpg), dipanggil otomatis oleh render.sh
+- bab.py: bab YouTube dari jadwal scene, dipanggil otomatis oleh render.sh (hasil di laporan.txt)
+- bab_dari_video.py: bab YouTube dari video yang sudah jadi (cadangan)
+- pasang_sfx.sh: memasang 20 SFX Kenney (CC0) ke public/sfx
+- templat/BRIEF.md: salin ke BRIEF.md tiap video baru, isi bagian [ISI]
