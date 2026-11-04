@@ -1,6 +1,7 @@
 #!/bin/bash
 set -e
 NAMA="${1:?Pakai: ./render.sh nama-video}"
+grep -q '"visual"' src/topik/data.json || { echo "Belum ada data video (src/topik/data.json kosong). Jalankan buat_video.py dulu."; exit 1; }
 npx remotion render Video "out/$NAMA.mp4" --concurrency=2
 [ -s "out/$NAMA.mp4" ] || { echo "Render gagal, tidak ada yang dihapus"; exit 1; }
 python alat/cek.py "out/$NAMA.mp4" || true
