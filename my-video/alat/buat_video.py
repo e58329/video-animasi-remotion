@@ -100,6 +100,7 @@ def main():
                 "visual": sc.get("visual", "abstrak"),
                 "sfx": sc.get("sfx", []),
                 "fokus": sc.get("fokus", ""),
+                "angka": sc.get("angka"),
                 "teks": sc["teks"],
                 "audio": f"topik/scene-{i}.mp3",
                 "durasi": round(d + JEDA, 3),
@@ -115,6 +116,7 @@ def main():
         "subjudul": topik.get("subjudul", ""),
         "musik": topik.get("musik", ""),
         "sfxTransisi": topik.get("sfxTransisi", ""),
+        "sfxOtomatis": topik.get("sfxOtomatis", False),
         "scenes": scenes,
     }
     json.dump(data, open(KELUAR, "w", encoding="utf-8"), indent=2, ensure_ascii=False)

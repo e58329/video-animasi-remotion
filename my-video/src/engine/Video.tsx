@@ -6,6 +6,8 @@ import { Kamera } from "./Kamera";
 import { Subtitle } from "./Subtitle";
 import { Judul } from "./Judul";
 import { Fokus } from "./Fokus";
+import { Angka } from "./Angka";
+import { SFX, berkasSfx } from "./sfx";
 import { ambilVisual } from "./visuals";
 
 const klem = { extrapolateLeft: "clamp", extrapolateRight: "clamp" } as const;
@@ -20,6 +22,7 @@ export const Video: React.FC<{ data: TopikData }> = ({ data }) => {
   const { jadwal, total } = hitungJadwal(data);
   const frame = useCurrentFrame();
   const ada = data.scenes.length > 0;
+  const transisi = data.sfxTransisi || (data.sfxOtomatis ? SFX.transisi : "");
 
   return (
     <AbsoluteFill style={{ backgroundColor: "#000" }}>
@@ -58,20 +61,30 @@ export const Video: React.FC<{ data: TopikData }> = ({ data }) => {
       {data.scenes.map((sc, i) => (
         <Sequence key={"s" + i} from={jadwal[i].mulai} durationInFrames={jadwal[i].dur}>
           <Audio src={staticFile(sc.audio)} />
-          {(sc.sfx ?? []).map((x, j) => (
-            <Sequence key={"x" + j} from={Math.round(x.at * FPS)}>
-              <Audio src={staticFile(x.file)} volume={x.volume ?? 0.6} />
+          {(sc.sfx ?? []).map((x, j) => {
+            const berkas = berkasSfx(x);
+            if (!berkas) return null;
+            return (
+              <Sequence key={"x" + j} from={Math.round(x.at * FPS)}>
+                <Audio src={staticFile(berkas)} volume={x.volume ?? 0.6} />
+              </Sequence>
+            );
+          })}
+          {data.sfxOtomatis && (sc.fokus || sc.angka) ? (
+            <Sequence from={8}>
+              <Audio src={staticFile(SFX.pop)} volume={0.35} />
             </Sequence>
-          ))}
+          ) : null}
           {sc.fokus ? <Fokus teks={sc.fokus} dur={jadwal[i].dur} /> : null}
+          {sc.angka ? <Angka {...sc.angka} dur={jadwal[i].dur} /> : null}
           <Subtitle kata={sc.kata} />
         </Sequence>
       ))}
 
-      {data.sfxTransisi
+      {transisi
         ? data.scenes.map((_, i) => (
             <Sequence key={"t" + i} from={Math.max(jadwal[i].mulai - OV, 0)}>
-              <Audio src={staticFile(data.sfxTransisi as string)} volume={0.5} />
+              <Audio src={staticFile(transisi)} volume={0.5} />
             </Sequence>
           ))
         : null}

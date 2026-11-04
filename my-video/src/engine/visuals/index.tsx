@@ -8,6 +8,10 @@ import { Lelang } from "./Lelang";
 import { Koin } from "./Koin";
 import { Jaringan } from "./Jaringan";
 import { GrafikBatang } from "./GrafikBatang";
+import { Radar } from "./Radar";
+import { Menara } from "./Menara";
+import { LangitPesawat } from "./LangitPesawat";
+import { GarisWaktu } from "./GarisWaktu";
 
 const LautTenang: React.FC = () => <Laut kedalaman={0.35} />;
 
@@ -25,6 +29,22 @@ const GrafikAlphabet: React.FC = () => (
   />
 );
 
+const GarisWaktuAtc: React.FC = () => (
+  <GarisWaktu
+    judul="Perjalanan teknologi menara ATC"
+    peristiwa={[
+      { tahun: "1920", label: "Menara Croydon" },
+      { tahun: "1929", label: "Pengatur pertama" },
+      { tahun: "1930", label: "Menara radio" },
+      { tahun: "1946", label: "Radar sipil" },
+      { tahun: "1958", label: "Lahir FAA" },
+      { tahun: "1987", label: "TCAS wajib" },
+      { tahun: "2015", label: "Menara jarak jauh" },
+      { tahun: "2019", label: "ADS-B satelit" },
+    ]}
+  />
+);
+
 export const visualTerdaftar: Record<string, React.FC> = {
   laut: LautTenang,
   "kapal-selam": KapalSelam,
@@ -35,6 +55,10 @@ export const visualTerdaftar: Record<string, React.FC> = {
   koin: Koin,
   jaringan: Jaringan,
   "grafik-alphabet": GrafikAlphabet,
+  radar: Radar,
+  menara: Menara,
+  langit: LangitPesawat,
+  "garis-waktu-atc": GarisWaktuAtc,
 };
 
 export const ambilVisual = (nama: string): React.FC => visualTerdaftar[nama] ?? Abstrak;

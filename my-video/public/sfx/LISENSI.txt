@@ -1,2 +1,1 @@
 Kenney Interface Sounds, CC0 1.0: https://opengameart.org/content/interface-sounds (mirror: https://github.com/Calinou/kenney-interface-sounds)
-Kenney Impact Sounds, CC0 1.0: https://kenney.nl (mirror: https://github.com/Loppansson/kenney-impact-sounds-for-godot)
