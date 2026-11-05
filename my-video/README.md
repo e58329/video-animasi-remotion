@@ -1,3 +1,4 @@
+rm -rf src/lib src/videos
 # Remotion video
 
 <p align="center">
