@@ -100,7 +100,7 @@ def main():
         pembilang, penyebut = video["r_frame_rate"].split("/")
         fps = float(pembilang) / float(penyebut)
         baris.append(f"Gambar   : {video['width']}x{video['height']}, {fps:g} fps, {video['codec_name']}")
-        if (video["width"], video["height"]) != (1920, 1080):
+        if (video["width"], video["height"]) not in ((1920, 1080), (1080, 1920)):
             peringatan.append(f"Resolusi {video['width']}x{video['height']}, bukan 1920x1080")
     else:
         peringatan.append("Tidak ada aliran gambar")

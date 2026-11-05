@@ -22,7 +22,10 @@ def main():
 
     model = None
     hasil = []
-    for idx, p in enumerate(topik.get("potongan", [])):
+    daftar = topik.get("potongan")
+    if not daftar and topik.get("jenis") == "short":
+        daftar = [{"nama": topik.get("nama", "short"), "scenes": list(range(1, jumlah + 1)), "cta": topik.get("cta")}]
+    for idx, p in enumerate(daftar or []):
         nomor = p.get("scenes", [])
         salah = [n for n in nomor if not isinstance(n, int) or not 1 <= n <= jumlah]
         if salah or not nomor:

@@ -36,6 +36,7 @@ def main():
     visual_ok = kunci_dari("src/engine/visuals/index.tsx", "export const visualTerdaftar")
     sfx_ok = kunci_dari("src/engine/sfx.ts", "export const SFX")
     scenes = data.get("scenes", [])
+    pendek = data.get("jenis") == "short"
     if not scenes:
         galat.append("Tidak ada scene")
 
@@ -77,30 +78,45 @@ def main():
             peringatan.append(f"Scene {i}: ada huruf non-ASCII (misalnya umlaut), suara mungkin salah baca")
         if len(kata) > 90:
             peringatan.append(f"Scene {i}: {len(kata)} kata, terlalu panjang untuk satu visual (pecah jadi dua)")
-        if not sc.get("bab"):
+        if not pendek and not sc.get("bab"):
             peringatan.append(f"Scene {i}: tanpa field 'bab' (bab YouTube tidak bisa dibuat)")
 
-    if durasi_perkiraan < DURASI_MIN:
-        peringatan.append(f"Perkiraan durasi {durasi_perkiraan / 60:.1f} menit, di bawah target 8 menit")
+    if pendek:
+        if len(scenes) < 3:
+            peringatan.append("Short sebaiknya punya minimal 3 scene")
+        if durasi_perkiraan - 5.0 > BATAS_POTONGAN:
+            peringatan.append(f"Perkiraan durasi {durasi_perkiraan - 5.0:.0f} detik, di atas {BATAS_POTONGAN} detik")
+        if durasi_perkiraan - 5.0 < 15:
+            peringatan.append(f"Perkiraan durasi {durasi_perkiraan - 5.0:.0f} detik, terlalu pendek")
+        teks_akhir = " ".join(s_.get("teks", "") for s_ in scenes[-2:]) + " " + data.get("cta", "")
+        if not re.search(r"berlangganan|ikuti|follow|subscribe", teks_akhir, re.I):
+            peringatan.append("Bagian akhir Short belum berisi ajakan mengikuti atau berlangganan")
+        if KANAL.lower() not in teks_akhir.lower():
+            peringatan.append(f"Nama channel '{KANAL}' belum disebut di bagian akhir Short")
 
-    prolog = [s for s in scenes if "prolog" in s.get("bab", "").lower()]
-    if prolog and not any(re.search(r"berlangganan|subscribe", s["teks"], re.I) for s in prolog):
-        peringatan.append("Prolog belum berisi ajakan berlangganan")
-    if not prolog:
-        peringatan.append("Tidak ada bab 'Prolog'")
-    akhir = scenes[-4:]
-    if not any(re.search(r"berlangganan|subscribe", s["teks"], re.I) for s in akhir):
-        peringatan.append("CTA di akhir belum berisi ajakan berlangganan")
-    sebut = sum(1 for s in scenes if KANAL.lower() in s["teks"].lower())
-    if sebut < 2:
-        peringatan.append(f"Nama channel '{KANAL}' disebut {sebut} kali di narasi (target 2: prolog dan CTA)")
+    if not pendek:
+        if durasi_perkiraan < DURASI_MIN:
+            peringatan.append(f"Perkiraan durasi {durasi_perkiraan / 60:.1f} menit, di bawah target 8 menit")
 
-    if os.path.exists("BRIEF.md"):
-        sisa = open("BRIEF.md", encoding="utf-8").read().count("[ISI]")
-        if sisa:
-            peringatan.append(f"BRIEF.md masih punya {sisa} bagian [ISI] yang kosong")
-    else:
-        peringatan.append("BRIEF.md belum ada (salin dari templat/BRIEF.md)")
+        prolog = [s for s in scenes if "prolog" in s.get("bab", "").lower()]
+        if prolog and not any(re.search(r"berlangganan|subscribe", s["teks"], re.I) for s in prolog):
+            peringatan.append("Prolog belum berisi ajakan berlangganan")
+        if not prolog:
+            peringatan.append("Tidak ada bab 'Prolog'")
+        akhir = scenes[-4:]
+        if not any(re.search(r"berlangganan|subscribe", s["teks"], re.I) for s in akhir):
+            peringatan.append("CTA di akhir belum berisi ajakan berlangganan")
+        sebut = sum(1 for s in scenes if KANAL.lower() in s["teks"].lower())
+        if sebut < 2:
+            peringatan.append(f"Nama channel '{KANAL}' disebut {sebut} kali di narasi (target 2: prolog dan CTA)")
+
+        if os.path.exists("BRIEF.md"):
+            sisa = open("BRIEF.md", encoding="utf-8").read().count("[ISI]")
+            if sisa:
+                peringatan.append(f"BRIEF.md masih punya {sisa} bagian [ISI] yang kosong")
+        else:
+            peringatan.append("BRIEF.md belum ada (salin dari templat/BRIEF.md)")
+
 
     for k, p in enumerate(data.get("potongan", []), start=1):
         nomor = p.get("scenes", [])

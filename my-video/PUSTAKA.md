@@ -33,3 +33,8 @@ klik pop transisi transisi2 sukses konfirmasi error tetes tetes2 semprot kaca ge
 - topik.json: "potongan": [{ "nama": "hook", "scenes": [1,2,3], "cta": "kalimat ajakan menonton video lengkap" }]
 - Urutan: buat_video.py lalu buat_potongan.py; render.sh merender tiap potongan jadi out/NAMA-potongan.mp4
 - Pratinjau di Studio: pilih komposisi Vertikal (potongan pertama), atau ubah props potongan
+
+## Short mandiri (tanpa video panjang)
+- topik.json: "jenis": "short", "nama": "...", "cta": "...", "scenes": [...] (tanpa bab, tanpa prolog)
+- Urutan: periksa.py, buat_video.py, buat_potongan.py, lalu ./render.sh nama --short (hasil out/nama.mp4)
+- Target 30 sampai 60 detik (sekitar 70 sampai 140 kata), hook di kalimat pertama
