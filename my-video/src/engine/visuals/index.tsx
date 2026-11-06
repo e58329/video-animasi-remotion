@@ -8,6 +8,9 @@ import { Lelang } from "./Lelang";
 import { Koin } from "./Koin";
 import { Jaringan } from "./Jaringan";
 import { GrafikBatang } from "./GrafikBatang";
+import { Terminal } from "./Terminal";
+import { JaringanTumbuh } from "./JaringanTumbuh";
+import { Web } from "./Web";
 import { Radar } from "./Radar";
 import { Menara } from "./Menara";
 import { LangitPesawat } from "./LangitPesawat";
@@ -55,6 +58,9 @@ export const visualTerdaftar: Record<string, React.FC> = {
   koin: Koin,
   jaringan: Jaringan,
   "grafik-alphabet": GrafikAlphabet,
+  terminal: Terminal,
+  "jaringan-tumbuh": JaringanTumbuh,
+  web: Web,
   radar: Radar,
   menara: Menara,
   langit: LangitPesawat,

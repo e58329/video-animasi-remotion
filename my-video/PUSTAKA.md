@@ -38,3 +38,8 @@ klik pop transisi transisi2 sukses konfirmasi error tetes tetes2 semprot kaca ge
 - topik.json: "jenis": "short", "nama": "...", "cta": "...", "scenes": [...] (tanpa bab, tanpa prolog)
 - Urutan: periksa.py, buat_video.py, buat_potongan.py, lalu ./render.sh nama --short (hasil out/nama.mp4)
 - Target 30 sampai 60 detik (sekitar 70 sampai 140 kata), hook di kalimat pertama
+
+## Entry pipeline
+- Pipeline ini memakai src/indexEngine.ts (komposisi Video dan Vertikal), terpisah dari src/Root.tsx yang dipakai proyek lain
+- Studio untuk pipeline ini: npx remotion studio src/indexEngine.ts
+- render.sh sudah memakai entry ini

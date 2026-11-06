@@ -2,15 +2,16 @@
 set -e
 NAMA="${1:?Pakai: ./render.sh nama-video [--short]}"
 MODE="${2:-}"
+ENTRY="src/indexEngine.ts"
 grep -q '"visual"' src/topik/data.json || { echo "Belum ada data video (src/topik/data.json kosong). Jalankan buat_video.py dulu."; exit 1; }
 
 if [ "$MODE" = "--short" ]; then
   grep -q '"potongan"' src/topik/data.json || { echo "Belum ada potongan. Jalankan buat_potongan.py dulu."; exit 1; }
-  npx remotion render Vertikal "out/$NAMA.mp4" --props='{"potongan":0}' --concurrency=2
+  npx remotion render "$ENTRY" Vertikal "out/$NAMA.mp4" --props='{"potongan":0}' --concurrency=2
   [ -s "out/$NAMA.mp4" ] || { echo "Render gagal, tidak ada yang dihapus"; exit 1; }
   python alat/cek.py "out/$NAMA.mp4" || true
 else
-  npx remotion render Video "out/$NAMA.mp4" --concurrency=2
+  npx remotion render "$ENTRY" Video "out/$NAMA.mp4" --concurrency=2
   [ -s "out/$NAMA.mp4" ] || { echo "Render gagal, tidak ada yang dihapus"; exit 1; }
   python alat/cek.py "out/$NAMA.mp4" || true
   { echo; echo "BAB YOUTUBE"; python alat/bab.py; } >> laporan.txt 2>/dev/null || true
@@ -23,7 +24,7 @@ PY
   while read -r IDX PNAMA; do
     [ -n "$IDX" ] || continue
     echo "Render potongan vertikal: $PNAMA"
-    npx remotion render Vertikal "out/$NAMA-$PNAMA.mp4" --props="{\"potongan\":$IDX}" --concurrency=2
+    npx remotion render "$ENTRY" Vertikal "out/$NAMA-$PNAMA.mp4" --props="{\"potongan\":$IDX}" --concurrency=2
   done < /tmp/potongan.txt
 fi
 
