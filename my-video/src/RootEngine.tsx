@@ -1,3 +1,4 @@
+import {AtcCompositions} from './atc/register';
 import React from "react";
 import { Composition } from "remotion";
 import { Video } from "./engine/Video";
@@ -30,5 +31,6 @@ export const RootEngine: React.FC = () => (
       defaultProps={{ data: topik, potongan: 0 }}
       calculateMetadata={({ props }) => ({ durationInFrames: hitungVertikal(props.data, props.potongan ?? 0).total })}
     />
-  </>
+    <AtcCompositions />
+    </>
 );
