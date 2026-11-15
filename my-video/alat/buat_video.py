@@ -1,3 +1,5 @@
+from lafal import lafalkan
+from petik import tanpa_petik
 import asyncio
 import difflib
 import json
@@ -10,7 +12,7 @@ import edge_tts
 import numpy as np
 from faster_whisper import WhisperModel
 
-JEDA = 0.5
+JEDA = 0.25
 KELUAR = "src/topik/data.json"
 FOLDER_AUDIO = "public/topik"
 
@@ -89,7 +91,7 @@ def bandingkan(kata_naskah, kw):
 
 
 async def sintesis(teks, path, suara):
-    c = edge_tts.Communicate(teks, suara["voice"], rate=suara["rate"], pitch=suara["pitch"])
+    c = edge_tts.Communicate(lafalkan(tanpa_petik(teks)), suara["voice"], rate=suara["rate"], pitch=suara["pitch"])
     await c.save(path)
 
 
@@ -107,6 +109,13 @@ def main():
     perlu = []
     for i, sc in enumerate(topik["scenes"], start=1):
         path = f"{FOLDER_AUDIO}/scene-{i}.mp3"
+        if sc.get("diam"):
+            import subprocess as _sp
+            _sp.run(["ffmpeg", "-nostdin", "-v", "error", "-y", "-f", "lavfi", "-i", "anullsrc=r=24000:cl=mono", "-t", str(sc["diam"]), "-acodec", "libmp3lame", path], check=True)
+            scenes.append({"visual": sc.get("visual", "abstrak"), "sfx": [], "fokus": "", "angka": None, "teks": sc["teks"], "audio": f"topik/scene-{i}.mp3", "durasi": float(sc["diam"]), "kata": []})
+            laporan.append(f"Scene {i}: kartu diam {sc['diam']} detik, tanpa suara")
+            print(f"Scene {i}: kartu diam {sc['diam']} detik")
+            continue
         asyncio.run(sintesis(sc["teks"], path, suara))
         d = durasi_audio(path)
         kata_naskah = sc["teks"].split()

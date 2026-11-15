@@ -1,0 +1,64 @@
+{
+  "jenis": "short",
+  "nama": "sadap-tiktok",
+  "judul": "HP Bisa Disadap Tanpa Klik",
+  "cta": "Video lengkapnya ada di YouTube Yakali Lu Tau. Berlangganan di @yakalilutau dan nyalakan lonceng.",
+  "scenes": [
+    {
+      "visual": "ponsel-diambil-alih",
+      "teks": "Ponsel bisa disadap tanpa kamu mengklik apa pun."
+    },
+    {
+      "visual": "klik-vs-tanpa-klik",
+      "teks": "Namanya serangan tanpa klik, atau zero-click."
+    },
+    {
+      "visual": "klik-tautan",
+      "teks": "Dulu, spyware butuh kamu mengklik tautan."
+    },
+    {
+      "visual": "ponsel-diambil-alih",
+      "teks": "Sekarang cukup satu pesan tak terlihat, dan ponselmu bisa diambil alih."
+    },
+    {
+      "visual": "perusahaan-spyware",
+      "teks": "Contoh terkenalnya Pegasus, spyware buatan perusahaan Israel bernama NSO Group."
+    },
+    {
+      "visual": "daftar-nomor",
+      "teks": "Tahun 2021, bocor daftar sekitar 50 ribu nomor yang diyakini dipilih para pelanggannya.",
+      "angka": {
+        "ke": 50000,
+        "label": "nomor dalam daftar yang bocor"
+      }
+    },
+    {
+      "visual": "stempel-bantah",
+      "teks": "Pembuatnya membantah itu daftar target."
+    },
+    {
+      "visual": "target-tertentu",
+      "teks": "Tenang, alat seperti ini biasanya untuk target tertentu, bukan semua orang."
+    },
+    {
+      "visual": "langkah-update",
+      "teks": "Tapi kamu tetap bisa mengurangi risikonya dengan empat langkah pencegahan murah. Pertama, perbarui sistem ponselmu secepatnya."
+    },
+    {
+      "visual": "langkah-restart",
+      "teks": "Kedua, restart ponsel secara berkala."
+    },
+    {
+      "visual": "langkah-tautan",
+      "teks": "Ketiga, jangan sembarang membuka tautan."
+    },
+    {
+      "visual": "langkah-lockdown",
+      "teks": "Keempat, kalau kamu wartawan atau aktivis, nyalakan Lockdown Mode."
+    },
+    {
+      "visual": "risiko-bukan-jaminan",
+      "teks": "Langkah-langkah ini mengurangi risiko, tapi tidak ada yang seratus persen aman."
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+# judul: Sejarah Penyadapan Dunia: Dari Kawat Telegraf Sampai Pegasus
+## Hook
+terminal | Ponselmu bisa diambil alih tanpa kamu menyentuh apa pun. Tanpa klik, tanpa tautan, tanpa tanda apa-apa.
+abstrak | Tapi kisah ini dimulai jauh sebelum ponsel ada. Tahun 1844, di kabel telegraf.
+abstrak | Tahun 1945, sebuah patung hadiah ternyata berisi mikrofon tanpa baterai, dan baru ketahuan tujuh tahun kemudian. | angka:7:tahun:tidak ketahuan
+garis-waktu-sadap | Dari sehelai kawat sampai spyware yang masuk tanpa klik, alat sadap berevolusi diam-diam selama lebih dari 180 tahun.
+terminal | Bagaimana teknologinya berevolusi, siapa yang paling canggih, dan apa saja yang dilaporkan masuk ke Indonesia? Kita bahas semuanya.
+@PROLOG
+@DISCLAIMER
+kartu-disclaimer | Video ini tidak membahas atau menyimpulkan kasus hukum tertentu, dan tidak ditujukan untuk menuduh pihak mana pun.
+kartu-disclaimer | Ini bukan panduan membuat atau memakai alat sadap, karena penyadapan tanpa dasar hukum adalah tindak pidana.
+kartu-disclaimer | Peringkat adalah penilaian editorial dari sumber publik, bukan data resmi.
+kartu-disclaimer | Informasi soal Indonesia bersumber dari laporan lembaga independen dan media. Data per November 2026.
+## Era kawat dan telepon
+abstrak | Semua bermula dari telegraf, tahun 1844. Untuk pertama kalinya pesan berjalan lewat kabel.
+abstrak | Dan siapa pun yang bisa menyentuh kabel itu, bisa ikut membaca isinya.
+abstrak | Di Perang Saudara Amerika awal 1860-an, pihak-pihak yang bertikai saling menyadap saluran telegraf.
+abstrak | Lalu telepon datang tahun 1876, dan cara menyadapnya sama sederhananya: sambung kabel cabang, lalu dengarkan.
+jaringan | Prinsipnya tidak berubah selama puluhan tahun. Siapa yang menguasai kabel, dialah yang mendengar.
+## Perang Dunia dan Perang Dingin
+abstrak | Perang Dunia Kedua mengubah penyadapan menjadi perang kode, termasuk usaha membongkar sandi Enigma di Bletchley Park.
+abstrak | Tahun 1946, Amerika dan Inggris sepakat berbagi intelijen sinyal. Inilah cikal bakal aliansi Five Eyes.
+abstrak | Lalu datang era Perang Dingin, saat alat sadap terdengar seperti film.
+abstrak | Tahun 1945, anak-anak Soviet menghadiahkan patung lambang Amerika kepada duta besar di Moskow.
+abstrak | Di dalamnya tersembunyi mikrofon tanpa baterai, dijuluki The Thing, yang hanya hidup saat disinari gelombang radio dari luar.
+abstrak | Alat itu baru ketahuan tahun 1952, setelah bertahun-tahun mendengar tanpa disadari.
+jaringan | Tahun 1955, Amerika dan Inggris menggali terowongan di bawah Berlin untuk menyadap kabel telepon militer Soviet.
+jaringan | Operasinya berjalan sekitar sebelas bulan. Ironisnya, Soviet sudah tahu sejak awal dari seorang mata-mata. | angka:11:bulan:terowongan Berlin beroperasi
+kapal-selam | Tahun 1971, kapal selam Amerika diam-diam menempelkan alat sadap ke kabel telepon militer Soviet di dasar Laut Okhotsk.
+kapal-selam | Rahasia itu bertahan sampai seorang pegawai badan intelijen Amerika menjualnya ke Soviet.
+## Era digital dan Snowden
+radar | Memasuki era seluler, muncul menara palsu yang disebut penangkap IMSI, atau stingray.
+radar | Ponsel di sekitarnya mengira itu menara asli, lalu terhubung, dan identitas perangkatnya tercatat.
+jaringan | Sementara itu data dunia mengalir lewat kabel serat optik bawah laut, dan badan intelijen belajar menyadapnya di titik-titik kabel.
+web | Tahun 2013, Edward Snowden membocorkan dokumen NSA tentang program seperti PRISM, XKeyscore, dan Tempora milik Inggris.
+web | Dunia akhirnya sadar bahwa penyadapan bisa bersifat massal, bukan hanya menargetkan satu orang.
+## Era spyware
+terminal | Lalu muncul enkripsi ujung ke ujung, dan menyadap kabel tidak lagi berguna. Pesannya sudah teracak.
+terminal | Maka caranya berubah: jangan sadap kabelnya, ambil alih ponselnya.
+web | Perusahaan swasta mulai menjual spyware ke pemerintah, seperti FinFisher dan NSO Group dengan Pegasus.
+terminal | Pegasus terungkap tahun 2016, dan versi berikutnya menakutkan: tanpa klik, tanpa tautan, cukup menerima pesan yang tidak terlihat.
+terminal | Tahun 2021, bocor daftar sekitar 50 ribu nomor yang diyakini dipilih para pelanggan NSO. | angka:50000::nomor dalam daftar yang bocor
+web | NSO membantah bahwa daftar itu adalah daftar target.
+## Peringkat dunia
+terminal | Sekarang pertanyaan yang paling sering muncul: siapa yang paling canggih?
+abstrak | Tidak ada daftar resmi, karena kemampuan intelijen adalah rahasia negara. Jadi ini penilaian editorial dari sumber publik.
+abstrak | Kriterianya lima: akses ke infrastruktur global, intelijen sinyal, peretasan ofensif, industri pendukung, dan skala pengawasan dalam negeri.
+peringkat-5 | Peringkat lima, Rusia. Sistem intersepsi terpasang di jaringan operator dalam negeri, ditambah unit peretas negara yang aktif.
+peringkat-4 | Peringkat empat, Inggris. GCHQ adalah mitra setara NSA, inti Five Eyes, dan program Tempora terbongkar tahun 2013.
+peringkat-3 | Peringkat tiga, Israel. Unit 8200 sering dibandingkan dengan NSA, dan dari ekosistemnya lahir banyak perusahaan spyware komersial.
+peringkat-2 | Peringkat dua, Tiongkok. Mungkin yang terluas untuk pengawasan dalam negeri.
+peringkat-2 | Studi tahun 2019 menempatkan delapan dari sepuluh kota paling diawasi di sana.
+peringkat-1 | Peringkat satu, Amerika Serikat. NSA dan jaringan Five Eyes punya akses ke kabel laut, perusahaan teknologi besar, dan kemampuan siber paling lengkap.
+peringkat-semua | Indeks kekuatan siber Harvard Belfer Center juga konsisten menaruh Amerika dan Tiongkok di dua teratas.
+peringkat-semua | Tapi ingat, negara yang paling pandai menyembunyikan kemampuannya bisa saja ada di luar daftar ini.
+## Alat sadap di Indonesia
+garis-waktu-laporan | Bagaimana dengan Indonesia? Bagian ini hanya membahas alat yang dilaporkan, bukan kasus hukum tertentu.
+abstrak | Penyadapan di Indonesia punya dasar hukum, dan aturannya masih tersebar di banyak undang-undang.
+garis-waktu-laporan | Peneliti Citizen Lab dan Access Now sebelumnya melacak server spyware FinFisher yang aktif di Indonesia.
+garis-waktu-laporan | Tahun 2023, majalah Tempo melaporkan jejak Pegasus ditemukan di Indonesia.
+garis-waktu-laporan | Mei 2024, Amnesty bersama Tempo, Haaretz, dan media lain menerbitkan laporan tentang ekspor spyware ke Indonesia.
+garis-waktu-laporan | Pemasoknya antara lain perusahaan terkait NSO, konsorsium Intellexa pemilik Predator, Candiru, dan FinFisher.
+garis-waktu-laporan | Produk itu dilaporkan masuk lewat perantara dan penjual ulang, termasuk yang berbasis di Singapura.
+abstrak | Menariknya, sebagian besar spyware di laporan itu butuh korban mengklik tautan, sering menyamar sebagai situs berita.
+abstrak | Amnesty menegaskan tidak punya bukti bahwa teknologi itu dipakai menarget kelompok masyarakat sipil tertentu di Indonesia.
+abstrak | Beberapa perusahaan yang disebut dalam laporan itu ikut memberi tanggapan kepada Amnesty.
+terminal | Intinya: alat yang sah dan alat yang disalahgunakan bisa berasal dari teknologi yang sama. Yang menentukan adalah siapa pemegangnya dan siapa pengawasnya.
+## Rangkuman
+garis-waktu-sadap | Dari kawat telegraf, terowongan Berlin, menara palsu, sampai pesan yang tak terlihat.
+garis-waktu-sadap | Teknologinya berubah, tapi pertanyaannya sama: siapa yang boleh mendengar, dan siapa yang mengawasi mereka?
+langkah-update | Pertama, perbarui sistem ponsel. Maksudnya menambal celah keamanan yang dipakai spyware untuk masuk.
+langkah-restart | Kedua, restart ponsel berkala. Ini bisa menghapus sebagian program jahat yang hanya hidup di memori.
+langkah-tautan | Ketiga, jangan sembarang membuka tautan. Sebagian serangan masih butuh satu klik darimu.
+langkah-lockdown | Keempat, nyalakan mode perlindungan ketat kalau berisiko tinggi. Fitur yang sering jadi pintu masuk dipersempit.
+risiko-bukan-jaminan | Tapi ingat, tidak ada yang 100 persen aman. Langkah ini hanya memperkecil risiko, bukan menjaminnya.
+@CTA

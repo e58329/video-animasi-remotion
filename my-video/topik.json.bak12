@@ -1,0 +1,379 @@
+{
+ "judul": "Sejarah Penyadapan Dunia: Dari Kawat Telegraf Sampai Pegasus",
+ "scenes": [
+  {
+   "visual": "terminal",
+   "teks": "Ponselmu bisa diambil alih tanpa kamu menyentuh apa pun. Tanpa klik, tanpa tautan, tanpa tanda apa-apa.",
+   "bab": "Hook"
+  },
+  {
+   "visual": "abstrak",
+   "teks": "Tapi kisah ini dimulai jauh sebelum ponsel ada. Tahun 1844, di kabel telegraf.",
+   "bab": "Hook"
+  },
+  {
+   "visual": "abstrak",
+   "teks": "Tahun 1945, sebuah patung hadiah ternyata berisi mikrofon tanpa baterai, dan baru ketahuan tujuh tahun kemudian.",
+   "bab": "Hook",
+   "angka": {
+    "ke": 7,
+    "label": "tidak ketahuan",
+    "akhiran": " tahun"
+   }
+  },
+  {
+   "visual": "garis-waktu-sadap",
+   "teks": "Dari sehelai kawat sampai spyware yang masuk tanpa klik, alat sadap berevolusi diam-diam selama lebih dari 180 tahun.",
+   "bab": "Hook"
+  },
+  {
+   "visual": "terminal",
+   "teks": "Bagaimana teknologinya berevolusi, siapa yang paling canggih, dan apa saja yang dilaporkan masuk ke Indonesia? Kita bahas semuanya.",
+   "bab": "Hook"
+  },
+  {
+   "visual": "ajakan-berlangganan",
+   "teks": "Selamat datang di Yakali Lu Tau, channel yang membongkar cara kerja dunia, satu topik tiap video.",
+   "bab": "Prolog"
+  },
+  {
+   "visual": "ajakan-berlangganan",
+   "teks": "Kalau kamu suka topik yang jarang dibahas serius, berlangganan di @yakalilutau dan nyalakan lonceng.",
+   "bab": "Prolog"
+  },
+  {
+   "visual": "ajakan-berlangganan",
+   "teks": "Sekarang, kita mulai.",
+   "bab": "Prolog"
+  },
+  {
+   "visual": "kartu-disclaimer",
+   "teks": "Sebelum mulai, satu hal penting. Video ini untuk edukasi dan hiburan, bukan nasihat hukum, medis, atau keuangan.",
+   "bab": "Disclaimer"
+  },
+  {
+   "visual": "kartu-disclaimer",
+   "teks": "Informasi bersumber dari data publik yang bisa berubah. Sumbernya ada di deskripsi video, dan kalau ada kekeliruan, tulis di komentar.",
+   "bab": "Disclaimer"
+  },
+  {
+   "visual": "kartu-disclaimer",
+   "teks": "Video ini tidak membahas atau menyimpulkan kasus hukum tertentu, dan tidak ditujukan untuk menuduh pihak mana pun.",
+   "bab": "Disclaimer"
+  },
+  {
+   "visual": "kartu-disclaimer",
+   "teks": "Ini bukan panduan membuat atau memakai alat sadap, karena penyadapan tanpa dasar hukum adalah tindak pidana.",
+   "bab": "Disclaimer"
+  },
+  {
+   "visual": "kartu-disclaimer",
+   "teks": "Peringkat adalah penilaian editorial dari sumber publik, bukan data resmi.",
+   "bab": "Disclaimer"
+  },
+  {
+   "visual": "kartu-disclaimer",
+   "teks": "Informasi soal Indonesia bersumber dari laporan lembaga independen dan media. Data per November 2026.",
+   "bab": "Disclaimer"
+  },
+  {
+   "visual": "abstrak",
+   "teks": "Semua bermula dari telegraf, tahun 1844. Untuk pertama kalinya pesan berjalan lewat kabel.",
+   "bab": "Era kawat dan telepon"
+  },
+  {
+   "visual": "abstrak",
+   "teks": "Dan siapa pun yang bisa menyentuh kabel itu, bisa ikut membaca isinya.",
+   "bab": "Era kawat dan telepon"
+  },
+  {
+   "visual": "abstrak",
+   "teks": "Di Perang Saudara Amerika awal 1860-an, pihak-pihak yang bertikai saling menyadap saluran telegraf.",
+   "bab": "Era kawat dan telepon"
+  },
+  {
+   "visual": "abstrak",
+   "teks": "Lalu telepon datang tahun 1876, dan cara menyadapnya sama sederhananya: sambung kabel cabang, lalu dengarkan.",
+   "bab": "Era kawat dan telepon"
+  },
+  {
+   "visual": "jaringan",
+   "teks": "Prinsipnya tidak berubah selama puluhan tahun. Siapa yang menguasai kabel, dialah yang mendengar.",
+   "bab": "Era kawat dan telepon"
+  },
+  {
+   "visual": "abstrak",
+   "teks": "Perang Dunia Kedua mengubah penyadapan menjadi perang kode, termasuk usaha membongkar sandi Enigma di Bletchley Park.",
+   "bab": "Perang Dunia dan Perang Dingin"
+  },
+  {
+   "visual": "abstrak",
+   "teks": "Tahun 1946, Amerika dan Inggris sepakat berbagi intelijen sinyal. Inilah cikal bakal aliansi Five Eyes.",
+   "bab": "Perang Dunia dan Perang Dingin"
+  },
+  {
+   "visual": "abstrak",
+   "teks": "Lalu datang era Perang Dingin, saat alat sadap terdengar seperti film.",
+   "bab": "Perang Dunia dan Perang Dingin"
+  },
+  {
+   "visual": "abstrak",
+   "teks": "Tahun 1945, anak-anak Soviet menghadiahkan patung lambang Amerika kepada duta besar di Moskow.",
+   "bab": "Perang Dunia dan Perang Dingin"
+  },
+  {
+   "visual": "abstrak",
+   "teks": "Di dalamnya tersembunyi mikrofon tanpa baterai, dijuluki The Thing, yang hanya hidup saat disinari gelombang radio dari luar.",
+   "bab": "Perang Dunia dan Perang Dingin"
+  },
+  {
+   "visual": "abstrak",
+   "teks": "Alat itu baru ketahuan tahun 1952, setelah bertahun-tahun mendengar tanpa disadari.",
+   "bab": "Perang Dunia dan Perang Dingin"
+  },
+  {
+   "visual": "jaringan",
+   "teks": "Tahun 1955, Amerika dan Inggris menggali terowongan di bawah Berlin untuk menyadap kabel telepon militer Soviet.",
+   "bab": "Perang Dunia dan Perang Dingin"
+  },
+  {
+   "visual": "jaringan",
+   "teks": "Operasinya berjalan sekitar sebelas bulan. Ironisnya, Soviet sudah tahu sejak awal dari seorang mata-mata.",
+   "bab": "Perang Dunia dan Perang Dingin",
+   "angka": {
+    "ke": 11,
+    "label": "terowongan Berlin beroperasi",
+    "akhiran": " bulan"
+   }
+  },
+  {
+   "visual": "kapal-selam",
+   "teks": "Tahun 1971, kapal selam Amerika diam-diam menempelkan alat sadap ke kabel telepon militer Soviet di dasar Laut Okhotsk.",
+   "bab": "Perang Dunia dan Perang Dingin"
+  },
+  {
+   "visual": "kapal-selam",
+   "teks": "Rahasia itu bertahan sampai seorang pegawai badan intelijen Amerika menjualnya ke Soviet.",
+   "bab": "Perang Dunia dan Perang Dingin"
+  },
+  {
+   "visual": "radar",
+   "teks": "Memasuki era seluler, muncul menara palsu yang disebut penangkap IMSI, atau stingray.",
+   "bab": "Era digital dan Snowden"
+  },
+  {
+   "visual": "radar",
+   "teks": "Ponsel di sekitarnya mengira itu menara asli, lalu terhubung, dan identitas perangkatnya tercatat.",
+   "bab": "Era digital dan Snowden"
+  },
+  {
+   "visual": "jaringan",
+   "teks": "Sementara itu data dunia mengalir lewat kabel serat optik bawah laut, dan badan intelijen belajar menyadapnya di titik-titik kabel.",
+   "bab": "Era digital dan Snowden"
+  },
+  {
+   "visual": "web",
+   "teks": "Tahun 2013, Edward Snowden membocorkan dokumen NSA tentang program seperti PRISM, XKeyscore, dan Tempora milik Inggris.",
+   "bab": "Era digital dan Snowden"
+  },
+  {
+   "visual": "web",
+   "teks": "Dunia akhirnya sadar bahwa penyadapan bisa bersifat massal, bukan hanya menargetkan satu orang.",
+   "bab": "Era digital dan Snowden"
+  },
+  {
+   "visual": "terminal",
+   "teks": "Lalu muncul enkripsi ujung ke ujung, dan menyadap kabel tidak lagi berguna. Pesannya sudah teracak.",
+   "bab": "Era spyware"
+  },
+  {
+   "visual": "terminal",
+   "teks": "Maka caranya berubah: jangan sadap kabelnya, ambil alih ponselnya.",
+   "bab": "Era spyware"
+  },
+  {
+   "visual": "web",
+   "teks": "Perusahaan swasta mulai menjual spyware ke pemerintah, seperti FinFisher dan NSO Group dengan Pegasus.",
+   "bab": "Era spyware"
+  },
+  {
+   "visual": "terminal",
+   "teks": "Pegasus terungkap tahun 2016, dan versi berikutnya menakutkan: tanpa klik, tanpa tautan, cukup menerima pesan yang tidak terlihat.",
+   "bab": "Era spyware"
+  },
+  {
+   "visual": "terminal",
+   "teks": "Tahun 2021, bocor daftar sekitar 50 ribu nomor yang diyakini dipilih para pelanggan NSO.",
+   "bab": "Era spyware",
+   "angka": {
+    "ke": 50000,
+    "label": "nomor dalam daftar yang bocor"
+   }
+  },
+  {
+   "visual": "web",
+   "teks": "NSO membantah bahwa daftar itu adalah daftar target.",
+   "bab": "Era spyware"
+  },
+  {
+   "visual": "terminal",
+   "teks": "Sekarang pertanyaan yang paling sering muncul: siapa yang paling canggih?",
+   "bab": "Peringkat dunia"
+  },
+  {
+   "visual": "abstrak",
+   "teks": "Tidak ada daftar resmi, karena kemampuan intelijen adalah rahasia negara. Jadi ini penilaian editorial dari sumber publik.",
+   "bab": "Peringkat dunia"
+  },
+  {
+   "visual": "abstrak",
+   "teks": "Kriterianya lima: akses ke infrastruktur global, intelijen sinyal, peretasan ofensif, industri pendukung, dan skala pengawasan dalam negeri.",
+   "bab": "Peringkat dunia"
+  },
+  {
+   "visual": "peringkat-5",
+   "teks": "Peringkat lima, Rusia. Sistem intersepsi terpasang di jaringan operator dalam negeri, ditambah unit peretas negara yang aktif.",
+   "bab": "Peringkat dunia"
+  },
+  {
+   "visual": "peringkat-4",
+   "teks": "Peringkat empat, Inggris. GCHQ adalah mitra setara NSA, inti Five Eyes, dan program Tempora terbongkar tahun 2013.",
+   "bab": "Peringkat dunia"
+  },
+  {
+   "visual": "peringkat-3",
+   "teks": "Peringkat tiga, Israel. Unit 8200 sering dibandingkan dengan NSA, dan dari ekosistemnya lahir banyak perusahaan spyware komersial.",
+   "bab": "Peringkat dunia"
+  },
+  {
+   "visual": "peringkat-2",
+   "teks": "Peringkat dua, Tiongkok. Mungkin yang terluas untuk pengawasan dalam negeri.",
+   "bab": "Peringkat dunia"
+  },
+  {
+   "visual": "peringkat-2",
+   "teks": "Studi tahun 2019 menempatkan delapan dari sepuluh kota paling diawasi di sana.",
+   "bab": "Peringkat dunia"
+  },
+  {
+   "visual": "peringkat-1",
+   "teks": "Peringkat satu, Amerika Serikat. NSA dan jaringan Five Eyes punya akses ke kabel laut, perusahaan teknologi besar, dan kemampuan siber paling lengkap.",
+   "bab": "Peringkat dunia"
+  },
+  {
+   "visual": "peringkat-semua",
+   "teks": "Indeks kekuatan siber Harvard Belfer Center juga konsisten menaruh Amerika dan Tiongkok di dua teratas.",
+   "bab": "Peringkat dunia"
+  },
+  {
+   "visual": "peringkat-semua",
+   "teks": "Tapi ingat, negara yang paling pandai menyembunyikan kemampuannya bisa saja ada di luar daftar ini.",
+   "bab": "Peringkat dunia"
+  },
+  {
+   "visual": "garis-waktu-laporan",
+   "teks": "Bagaimana dengan Indonesia? Bagian ini hanya membahas alat yang dilaporkan, bukan kasus hukum tertentu.",
+   "bab": "Alat sadap di Indonesia"
+  },
+  {
+   "visual": "abstrak",
+   "teks": "Penyadapan di Indonesia punya dasar hukum, dan aturannya masih tersebar di banyak undang-undang.",
+   "bab": "Alat sadap di Indonesia"
+  },
+  {
+   "visual": "garis-waktu-laporan",
+   "teks": "Peneliti Citizen Lab dan Access Now sebelumnya melacak server spyware FinFisher yang aktif di Indonesia.",
+   "bab": "Alat sadap di Indonesia"
+  },
+  {
+   "visual": "garis-waktu-laporan",
+   "teks": "Tahun 2023, majalah Tempo melaporkan jejak Pegasus ditemukan di Indonesia.",
+   "bab": "Alat sadap di Indonesia"
+  },
+  {
+   "visual": "garis-waktu-laporan",
+   "teks": "Mei 2024, Amnesty bersama Tempo, Haaretz, dan media lain menerbitkan laporan tentang ekspor spyware ke Indonesia.",
+   "bab": "Alat sadap di Indonesia"
+  },
+  {
+   "visual": "garis-waktu-laporan",
+   "teks": "Pemasoknya antara lain perusahaan terkait NSO, konsorsium Intellexa pemilik Predator, Candiru, dan FinFisher.",
+   "bab": "Alat sadap di Indonesia"
+  },
+  {
+   "visual": "garis-waktu-laporan",
+   "teks": "Produk itu dilaporkan masuk lewat perantara dan penjual ulang, termasuk yang berbasis di Singapura.",
+   "bab": "Alat sadap di Indonesia"
+  },
+  {
+   "visual": "abstrak",
+   "teks": "Menariknya, sebagian besar spyware di laporan itu butuh korban mengklik tautan, sering menyamar sebagai situs berita.",
+   "bab": "Alat sadap di Indonesia"
+  },
+  {
+   "visual": "abstrak",
+   "teks": "Amnesty menegaskan tidak punya bukti bahwa teknologi itu dipakai menarget kelompok masyarakat sipil tertentu di Indonesia.",
+   "bab": "Alat sadap di Indonesia"
+  },
+  {
+   "visual": "abstrak",
+   "teks": "Beberapa perusahaan yang disebut dalam laporan itu ikut memberi tanggapan kepada Amnesty.",
+   "bab": "Alat sadap di Indonesia"
+  },
+  {
+   "visual": "terminal",
+   "teks": "Intinya: alat yang sah dan alat yang disalahgunakan bisa berasal dari teknologi yang sama. Yang menentukan adalah siapa pemegangnya dan siapa pengawasnya.",
+   "bab": "Alat sadap di Indonesia"
+  },
+  {
+   "visual": "garis-waktu-sadap",
+   "teks": "Dari kawat telegraf, terowongan Berlin, menara palsu, sampai pesan yang tak terlihat.",
+   "bab": "Rangkuman"
+  },
+  {
+   "visual": "garis-waktu-sadap",
+   "teks": "Teknologinya berubah, tapi pertanyaannya sama: siapa yang boleh mendengar, dan siapa yang mengawasi mereka?",
+   "bab": "Rangkuman"
+  },
+  {
+   "visual": "langkah-update",
+   "teks": "Pertama, perbarui sistem ponsel. Maksudnya menambal celah keamanan yang dipakai spyware untuk masuk.",
+   "bab": "Rangkuman"
+  },
+  {
+   "visual": "langkah-restart",
+   "teks": "Kedua, restart ponsel berkala. Ini bisa menghapus sebagian program jahat yang hanya hidup di memori.",
+   "bab": "Rangkuman"
+  },
+  {
+   "visual": "langkah-tautan",
+   "teks": "Ketiga, jangan sembarang membuka tautan. Sebagian serangan masih butuh satu klik darimu.",
+   "bab": "Rangkuman"
+  },
+  {
+   "visual": "langkah-lockdown",
+   "teks": "Keempat, nyalakan mode perlindungan ketat kalau berisiko tinggi. Fitur yang sering jadi pintu masuk dipersempit.",
+   "bab": "Rangkuman"
+  },
+  {
+   "visual": "risiko-bukan-jaminan",
+   "teks": "Tapi ingat, tidak ada yang 100 persen aman. Langkah ini hanya memperkecil risiko, bukan menjaminnya.",
+   "bab": "Rangkuman"
+  },
+  {
+   "visual": "ajakan-suka",
+   "teks": "Kalau video ini menambah wawasanmu, tekan suka dan bagikan ke temanmu.",
+   "bab": "Penutup"
+  },
+  {
+   "visual": "ajakan-komentar",
+   "teks": "Menurutmu, topik apa yang paling pantas kita bongkar berikutnya? Tulis di kolom komentar.",
+   "bab": "Penutup"
+  },
+  {
+   "visual": "ajakan-berlangganan",
+   "teks": "Berlangganan Yakali Lu Tau di @yakalilutau supaya tidak ketinggalan. Sampai jumpa.",
+   "bab": "Penutup"
+  }
+ ]
+}

@@ -1,0 +1,19 @@
+{
+  "jenis": "short",
+  "nama": "sadap-yt",
+  "judul": "3 Alat Sadap Paling Gila Sepanjang Sejarah",
+  "cta": "Video lengkapnya ada di YouTube Yakali Lu Tau. Berlangganan di @yakalilutau dan nyalakan lonceng.",
+  "scenes": [
+    {"visual": "kedutaan-sadap", "teks": "Mikrofon tanpa baterai ini menyadap kedutaan Amerika selama tujuh tahun.", "angka": {"ke": 7, "akhiran": " tahun", "label": "tidak ketahuan"}},
+    {"visual": "serah-patung", "teks": "Tahun 1945, anak-anak Soviet menghadiahkan patung lambang Amerika kepada duta besar di Moskow."},
+    {"visual": "sinar-radio", "teks": "Di dalamnya tersembunyi mikrofon yang hanya hidup saat disinari gelombang radio dari luar."},
+    {"visual": "tanpa-baterai", "teks": "Tidak ada baterai, tidak ada kabel. Baru ketahuan tahun 1952."},
+    {"visual": "terowongan-gali", "teks": "Nomor dua. Tahun 1955, Amerika dan Inggris menggali terowongan di bawah Berlin."},
+    {"visual": "terowongan-sadap", "teks": "Tujuannya menyadap kabel telepon militer Soviet. Operasinya berjalan sekitar sebelas bulan.", "angka": {"ke": 11, "akhiran": " bulan", "label": "terowongan Berlin beroperasi"}},
+    {"visual": "mata-mata", "teks": "Ironisnya, Soviet sudah tahu sejak awal dari seorang mata-mata di dalam dinas Inggris."},
+    {"visual": "ponsel-diambil-alih", "teks": "Nomor tiga. Pegasus. Spyware yang bisa mengambil alih ponsel tanpa kamu mengklik apa pun."},
+    {"visual": "daftar-nomor", "teks": "Tahun 2021, bocor daftar sekitar 50 ribu nomor yang diyakini dipilih para pelanggannya.", "angka": {"ke": 50000, "label": "nomor dalam daftar yang bocor"}},
+    {"visual": "stempel-bantah", "teks": "Pembuatnya membantah itu daftar target."},
+    {"visual": "garis-waktu-sadap", "teks": "Dari mikrofon di dalam patung sampai peretasan tanpa klik, tujuannya tetap sama: mendengar yang tidak boleh kamu ketahui."}
+  ]
+}

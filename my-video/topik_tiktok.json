@@ -1,0 +1,44 @@
+{
+  "jenis": "short",
+  "nama": "binance-tiktok-2d",
+  "judul": "Binance Kehilangan 6 Miliar Dolar dalam 20 Menit",
+  "cta": "Video lengkapnya ada di YouTube Yakali Lu Tau. Berlangganan di @yakalilutau dan nyalakan lonceng.",
+  "scenes": [
+    {
+      "visual": "brankas-kosong-2d",
+      "teks": "6 miliar dolar lebih hilang dari Binance dalam satu malam."
+    },
+    {
+      "visual": "jam-20-menit-2d",
+      "teks": "Sebagian besar dana itu pindah dalam sekitar 20 menit."
+    },
+    {
+      "visual": "kunci-utuh-2d",
+      "teks": "Anehnya, hasil penyelidikan awal menyebut tidak ada kunci rahasia yang bocor."
+    },
+    {
+      "visual": "penanda-tangan-2d",
+      "teks": "Jadi bagaimana bisa? Penyerang menumpang layanan resmi yang menandatangani transaksi."
+    },
+    {
+      "visual": "penanda-tangan-2d",
+      "teks": "Layanan itu meneken apa yang diminta. Kalau peminta tampak seperti orang dalam, ia ikut meneken."
+    },
+    {
+      "visual": "laptop-diambil-alih-2d",
+      "teks": "Untuk bisa menyuruhnya, penyerang lebih dulu menguasai laptop para insinyur."
+    },
+    {
+      "visual": "lowongan-palsu-2d",
+      "teks": "Pintu masuknya, menurut laporan Binance: paket palsu dan lowongan kerja palsu."
+    },
+    {
+      "visual": "jam-20-menit-2d",
+      "teks": "Ini versi laporan Binance sendiri. Penyelidikan independen masih berjalan."
+    },
+    {
+      "visual": "mata-mata-2d",
+      "teks": "Pelajarannya: yang diserang bukan cuma sistem, tapi juga manusianya."
+    }
+  ]
+}

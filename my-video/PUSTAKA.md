@@ -43,3 +43,18 @@ klik pop transisi transisi2 sukses konfirmasi error tetes tetes2 semprot kaca ge
 - Pipeline ini memakai src/indexEngine.ts (komposisi Video dan Vertikal), terpisah dari src/Root.tsx yang dipakai proyek lain
 - Studio untuk pipeline ini: npx remotion studio src/indexEngine.ts
 - render.sh sudah memakai entry ini
+
+## Pesawat miring (src/engine/PesawatMiring.tsx)
+- PesawatMiring menghitung sudut miring dari arah lintasan, jadi pesawat naik = hidung naik, turun = hidung turun.
+- Pakai: lintasan = (t) => ({x, y}) dengan t 0 sampai 1; children menerima {x, y, rot}.
+- Contoh: PesawatMiring lintasan={...} t={frame / durasi}, di dalamnya Plane x y rot.
+- Opsi: hadap ("kanan" atau "kiri"), kekuatan (0.6), batas (35 derajat), jendela (0.03), offset.
+- Asumsi: rot dalam derajat searah jarum jam dan sprite menghadap kanan saat rot 0. Kalau miringnya terbalik, ubah offset atau cek Plane di src/atc/engine/visuals2.tsx.
+
+## Visual garis-waktu-sadap
+- Garis waktu sejarah penyadapan, terdaftar di visuals/index.tsx (cadangan index.tsx.bak).
+
+## Bagian baku (selalu sama)
+- templat/baku_long.txt: prolog, disclaimer, dan penutup (CTA) video long. Di naskah tulis penanda @PROLOG, @DISCLAIMER, @CTA, lalu jalankan alat/dari_naskah.py. Disclaimer khusus topik ditulis sebagai scene biasa tepat setelah @DISCLAIMER.
+- templat/baku_short.txt: CTA semua Short, dipasang otomatis oleh alat/pasang_baku.py (bagian dari perintah bikin).
+- Urutan long: hook, prolog, disclaimer, isi, rangkuman, CTA. Scene lebih dari 22 kata diberi peringatan.

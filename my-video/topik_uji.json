@@ -1,0 +1,14 @@
+{
+  "jenis": "short",
+  "nama": "uji-v4",
+  "judul": "Uji Figur Animasi",
+  "cta": "Video lengkapnya ada di YouTube Yakali Lu Tau. Berlangganan di @yakalilutau dan nyalakan lonceng.",
+  "scenes": [
+    {"visual": "lowongan-palsu-v2", "teks": "Kamu dapat tawaran kerja bagus. Lalu disuruh mengunduh tugas coding."},
+    {"visual": "rekruter-palsu-v2", "teks": "Menurut laporan Binance, begitulah salah satu insinyurnya didekati. 'HR' palsu menunjukkan akun yang tampak nyata."},
+    {"visual": "ceo-palsu-chat-v2", "teks": "Lalu 'CEO' palsu menyuruhnya mengunduh tugas coding lewat chat."},
+    {"visual": "tugas-berisi-malware-v2", "teks": "Isinya malware, yaitu program jahat yang diam-diam menguasai laptop."},
+    {"visual": "laptop-diambil-alih-v2", "teks": "Akibatnya laptop kerja diambil alih tanpa disadari."},
+    {"visual": "mata-mata-v2", "teks": "Dari situ penyerang bisa mengintai dan mempelajari cara kerja perusahaan."}
+  ]
+}

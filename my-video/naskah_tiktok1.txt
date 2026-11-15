@@ -1,0 +1,16 @@
+# judul: Binance Kehilangan 6 Miliar Dolar dalam 20 Menit
+
+## Hook
+brankas-kosong | 6 miliar dolar lebih hilang dari Binance dalam satu malam. | angka:6:miliar dolar lebih:hilang dalam satu malam
+garis-waktu-binance | Sebagian besar dana itu pindah dalam sekitar 20 menit. | angka:20:menit:sebagian besar dana berpindah
+
+## Isi
+kunci-utuh | Anehnya, hasil penyelidikan awal menyebut tidak ada kunci rahasia yang bocor.
+penanda-tangan-mesin | Jadi bagaimana bisa? Penyerang menumpang layanan resmi yang menandatangani transaksi.
+penanda-tangan-mesin | Layanan itu meneken apa yang diminta. Kalau peminta tampak seperti orang dalam, ia ikut meneken.
+laptop-diambil-alih | Untuk bisa menyuruhnya, penyerang lebih dulu menguasai laptop para insinyur.
+lowongan-palsu | Pintu masuknya, menurut laporan Binance: paket palsu dan lowongan kerja palsu.
+garis-waktu-binance | Ini versi laporan Binance sendiri. Penyelidikan independen masih berjalan.
+mata-mata | Pelajarannya: yang diserang bukan cuma sistem, tapi juga manusianya.
+
+@CTA

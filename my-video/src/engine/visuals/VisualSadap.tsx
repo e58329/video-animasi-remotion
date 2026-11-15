@@ -1,0 +1,535 @@
+import React from "react";
+import { Easing, interpolate, useCurrentFrame, useVideoConfig } from "remotion";
+import { FPS } from "../waktu";
+import { useProgres } from "../animasi";
+
+export const C = {
+  cyan: "#00E5FF",
+  teal: "#4dd0e1",
+  ungu: "#a78bfa",
+  kuning: "#ffd166",
+  merah: "#ff6b6b",
+  teks: "#ffffff",
+  redup: "rgba(255,255,255,0.55)",
+};
+export const klem = { extrapolateLeft: "clamp", extrapolateRight: "clamp" } as const;
+export const sel = (p: number, a: number, b: number) =>
+  interpolate(p, [a, b], [0, 1], { ...klem, easing: Easing.inOut(Easing.cubic) });
+export const lin = (p: number, a: number, b: number) => interpolate(p, [a, b], [0, 1], klem);
+export const lerp = (a: number, b: number, k: number) => a + (b - a) * k;
+
+export const useAdegan = () => {
+  const f = useCurrentFrame();
+  const total = FPS * 4.5;
+  return { f, t: f / FPS, p: Math.min(1, f / (total - 1)) };
+};
+
+export const Kanvas: React.FC<{ children: React.ReactNode; penuh?: boolean }> = ({ children, penuh }) => {
+  const { width, height } = useVideoConfig();
+  const sisakan = width > height && !penuh;
+  return (
+    <svg
+      viewBox="0 0 880 607"
+      style={sisakan ? { position: "absolute", left: 0, top: 0, width: "100%", height: "72%" } : { width: "100%", height: "100%" }}
+    >
+      {children}
+    </svg>
+  );
+};
+
+export const T: React.FC<{
+  x: number;
+  y: number;
+  children: React.ReactNode;
+  size?: number;
+  fill?: string;
+  anchor?: "start" | "middle" | "end";
+  opacity?: number;
+  bold?: boolean;
+}> = ({ x, y, children, size = 26, fill = C.teks, anchor = "middle", opacity = 1, bold = false }) => (
+  <text x={x} y={y} fontSize={size} fill={fill} textAnchor={anchor} opacity={opacity} fontWeight={bold ? 700 : 400} fontFamily="inherit">
+    {children}
+  </text>
+);
+
+export const bintang = (cx: number, cy: number, R: number, r: number) =>
+  Array.from({ length: 10 }, (_, i) => {
+    const a = ((-90 + i * 36) * Math.PI) / 180;
+    const k = i % 2 === 0 ? R : r;
+    return `${cx + k * Math.cos(a)},${cy + k * Math.sin(a)}`;
+  }).join(" ");
+
+export const Orang: React.FC<{ x: number; y: number; warna?: string; langkah?: number; skala?: number; hadap?: 1 | -1 }> = ({
+  x, y, warna = C.cyan, langkah = 0, skala = 1, hadap = 1,
+}) => {
+  const ayun = Math.sin(langkah) * 14;
+  return (
+    <g transform={`translate(${x} ${y}) scale(${skala * hadap} ${skala})`}>
+      <line x1={0} y1={0} x2={-ayun} y2={46} stroke={warna} strokeWidth={8} strokeLinecap="round" />
+      <line x1={0} y1={0} x2={ayun} y2={46} stroke={warna} strokeWidth={8} strokeLinecap="round" />
+      <rect x={-16} y={-62} width={32} height={66} rx={14} fill={warna} />
+      <circle cx={0} cy={-84} r={16} fill={warna} />
+    </g>
+  );
+};
+
+export const Mik: React.FC<{ x: number; y: number; s?: number; nyala?: number; warna?: string }> = ({
+  x, y, s = 1, nyala = 0, warna = C.cyan,
+}) => (
+  <g transform={`translate(${x} ${y}) scale(${s})`}>
+    <circle r={50 + 14 * nyala} fill={`rgba(0,229,255,${0.1 * nyala})`} />
+    <rect x={-12} y={-34} width={24} height={40} rx={12} fill={`rgba(0,229,255,${0.15 + 0.5 * nyala})`} stroke={warna} strokeWidth={4} />
+    <path d="M -22 -6 C -22 22 22 22 22 -6" fill="none" stroke={warna} strokeWidth={4} strokeLinecap="round" />
+    <line x1={0} y1={16} x2={0} y2={32} stroke={warna} strokeWidth={4} />
+    <line x1={-14} y1={32} x2={14} y2={32} stroke={warna} strokeWidth={4} strokeLinecap="round" />
+  </g>
+);
+
+export const KedutaanSadap: React.FC = () => {
+  const { t, p } = useAdegan();
+  const masuk = sel(p, 0, 0.12);
+  const aktif = lin(p, 0.14, 0.24);
+  const bendera = Math.sin(t * 4) * 6;
+  const bar = lin(p, 0.1, 0.95);
+  const tahun = Math.round(lerp(1945, 1952, bar));
+  return (
+    <Kanvas>
+      <g opacity={masuk} transform={`translate(0 ${(1 - masuk) * 24})`}>
+        <polygon points="70,230 250,150 430,230" fill="rgba(255,255,255,0.06)" stroke={C.teks} strokeWidth={4} strokeLinejoin="round" />
+        <rect x={90} y={230} width={320} height={190} fill="rgba(255,255,255,0.05)" stroke={C.teks} strokeWidth={4} />
+        {[120, 190, 280, 350].map((x) => (
+          <rect key={x} x={x} y={250} width={26} height={150} fill="rgba(255,255,255,0.1)" />
+        ))}
+        <rect x={228} y={350} width={46} height={70} fill="rgba(0,0,0,0.4)" stroke={C.redup} strokeWidth={3} />
+        <line x1={250} y1={150} x2={250} y2={78} stroke={C.teks} strokeWidth={4} />
+        <path d={`M 250 80 q 30 ${-8 + bendera} 56 0 v 30 q -26 ${8 - bendera} -56 0 z`} fill={C.merah} />
+        <T x={250} y={456} size={24} fill={C.redup}>Kedutaan Amerika, Moskow</T>
+        <Mik x={318} y={310} s={0.8} nyala={aktif * (0.5 + 0.5 * Math.sin(t * 6))} />
+        <T x={318} y={366} size={20} fill={C.cyan} opacity={aktif}>mikrofon tersembunyi</T>
+        {[0, 1, 2, 3].map((i) => {
+          const q = (t * 0.5 + i / 4) % 1;
+          return (
+            <circle key={i} cx={350 + q * 380} cy={310 - Math.sin(q * 16) * 22} r={7} fill={C.kuning} opacity={aktif * Math.max(0, 1 - Math.abs(q - 0.5) * 1.4)} />
+          );
+        })}
+        <rect x={730} y={290} width={110} height={90} rx={8} fill="rgba(255,255,255,0.06)" stroke={C.ungu} strokeWidth={4} />
+        <path d="M 760 330 a 25 25 0 0 1 50 0" fill="none" stroke={C.ungu} strokeWidth={5} />
+        <rect x={752} y={328} width={12} height={22} rx={5} fill={C.ungu} />
+        <rect x={806} y={328} width={12} height={22} rx={5} fill={C.ungu} />
+        <T x={785} y={410} size={20} fill={C.ungu}>Pos pendengar</T>
+        <rect x={90} y={528} width={700} height={10} rx={5} fill="rgba(255,255,255,0.12)" />
+        <rect x={90} y={528} width={700 * bar} height={10} rx={5} fill={C.cyan} />
+        <T x={90} y={516} size={22} fill={C.redup} anchor="start">1945</T>
+        <T x={790} y={516} size={22} fill={C.redup} anchor="end">1952</T>
+        <T x={90 + 700 * bar} y={576} size={30} fill={C.cyan} bold>{tahun}</T>
+      </g>
+    </Kanvas>
+  );
+};
+
+export const SerahPatung: React.FC = () => {
+  const { f, p } = useAdegan();
+  const jalan = sel(p, 0.02, 0.4);
+  const serah = sel(p, 0.45, 0.6);
+  const gantung = sel(p, 0.68, 0.94);
+  const pergi = sel(p, 0.66, 1);
+  const anakX = lerp(-130, 330, jalan) - 520 * pergi;
+  const bergerak = (jalan > 0 && jalan < 1) || pergi > 0;
+  const langkah = bergerak ? f * 0.5 : 0;
+  const px = gantung > 0 ? lerp(520, 730, gantung) : lerp(anakX + 25, 520, serah);
+  const py = gantung > 0 ? lerp(335, 235, gantung) : 335;
+  const sk = lerp(1, 1.5, gantung);
+  return (
+    <Kanvas>
+      <T x={440} y={70} size={44} fill={C.teal} bold>Moskow, 1945</T>
+      <rect x={650} y={120} width={200} height={310} fill="rgba(255,255,255,0.05)" stroke={C.redup} strokeWidth={3} />
+      <line x1={0} y1={440} x2={880} y2={440} stroke={C.redup} strokeWidth={3} />
+      <Orang x={anakX - 40} y={412} warna={C.merah} skala={0.6} langkah={langkah} />
+      <Orang x={anakX + 90} y={412} warna={C.merah} skala={0.6} langkah={langkah + 1} />
+      <T x={anakX + 25} y={482} size={20} fill={C.merah} opacity={1 - pergi}>Anak-anak Soviet</T>
+      <Orang x={600} y={394} warna={C.cyan} skala={1} hadap={-1} />
+      <T x={600} y={482} size={20} fill={C.cyan}>Duta besar AS</T>
+      <g transform={`translate(${px} ${py}) scale(${sk})`}>
+        <circle r={36} fill="#3a2a1a" stroke="#c9a227" strokeWidth={5} />
+        <polygon points={bintang(0, 0, 22, 9)} fill="#c9a227" />
+      </g>
+      <T x={740} y={470} size={20} fill={C.redup} opacity={gantung}>Dipajang di dinding</T>
+    </Kanvas>
+  );
+};
+
+export const SinarRadio: React.FC = () => {
+  const { t, p } = useAdegan();
+  const masuk = sel(p, 0, 0.1);
+  const maks = 520;
+  const qs = [0, 1, 2].map((i) => (t * 0.55 + i / 3) % 1);
+  const nyala = Math.max(...qs.map((q) => interpolate(q * maks, [420, 446, 472], [0, 1, 0], klem)));
+  const balik = lin(p, 0.3, 0.4);
+  return (
+    <Kanvas>
+      <g opacity={masuk}>
+        <rect x={40} y={400} width={150} height={60} rx={10} fill="rgba(255,255,255,0.08)" stroke={C.teks} strokeWidth={4} />
+        <rect x={190} y={420} width={50} height={40} rx={6} fill="rgba(255,255,255,0.08)" stroke={C.teks} strokeWidth={4} />
+        <circle cx={85} cy={466} r={16} fill="#111" stroke={C.teks} strokeWidth={4} />
+        <circle cx={205} cy={466} r={16} fill="#111" stroke={C.teks} strokeWidth={4} />
+        <line x1={115} y1={400} x2={115} y2={340} stroke={C.kuning} strokeWidth={5} />
+        <circle cx={115} cy={332} r={10} fill={C.kuning} />
+        <T x={140} y={512} size={20} fill={C.kuning}>Pemancar di luar</T>
+        {qs.map((q, i) => (
+          <circle key={i} cx={115} cy={332} r={q * maks} fill="none" stroke={C.kuning} strokeWidth={4} opacity={(1 - q) * 0.7} />
+        ))}
+        <rect x={545} y={150} width={30} height={330} fill="rgba(255,255,255,0.08)" stroke={C.redup} strokeWidth={3} />
+        <circle cx={560} cy={300} r={52} fill="#3a2a1a" stroke="#c9a227" strokeWidth={6} />
+        <circle cx={560} cy={300} r={46} fill="rgba(2,24,48,0.92)" />
+        <Mik x={560} y={304} s={0.55} nyala={nyala} />
+        <T x={560} y={388} size={20} fill={C.cyan} opacity={lin(p, 0.15, 0.3)}>Hidup saat disinari</T>
+        {[0, 1, 2, 3].map((i) => {
+          const q = (t * 0.6 + i / 4) % 1;
+          return <circle key={i} cx={610 + q * 190} cy={300 - Math.sin(q * 14) * 14} r={6} fill={C.cyan} opacity={balik * (0.3 + 0.7 * nyala)} />;
+        })}
+        <rect x={810} y={265} width={50} height={70} rx={8} fill="rgba(255,255,255,0.06)" stroke={C.ungu} strokeWidth={4} />
+        <T x={835} y={360} size={18} fill={C.ungu}>Pendengar</T>
+      </g>
+    </Kanvas>
+  );
+};
+
+export const TanpaBaterai: React.FC = () => {
+  const { t, p } = useAdegan();
+  const masuk = sel(p, 0, 0.1);
+  const bat = sel(p, 0.08, 0.2);
+  const coret = lin(p, 0.2, 0.32);
+  const kabel = sel(p, 0.3, 0.42);
+  const silang = lin(p, 0.42, 0.52);
+  const tahun = Math.round(lerp(1945, 1952, lin(p, 0.5, 0.88)));
+  const temu = sel(p, 0.88, 0.98);
+  return (
+    <Kanvas>
+      <g opacity={masuk}>
+        <Mik x={440} y={230} s={1.9} nyala={0.2 + 0.1 * Math.sin(t * 5)} />
+        <g opacity={bat}>
+          <rect x={100} y={200} width={110} height={52} rx={9} fill="none" stroke={C.redup} strokeWidth={5} />
+          <rect x={210} y={214} width={10} height={24} rx={3} fill={C.redup} />
+          <T x={155} y={238} size={26} fill={C.redup}>0%</T>
+          <line x1={90} y1={270} x2={90 + 140 * coret} y2={270 - 80 * coret} stroke={C.merah} strokeWidth={8} strokeLinecap="round" />
+          <T x={160} y={300} size={22} fill={C.redup}>Tanpa baterai</T>
+        </g>
+        <g opacity={kabel}>
+          <path d={`M 610 230 h ${150 * kabel}`} stroke={C.redup} strokeWidth={6} fill="none" strokeLinecap="round" />
+          <rect x={596} y={216} width={18} height={28} rx={4} fill={C.redup} />
+          <line x1={690} y1={200} x2={690 + 70 * silang} y2={200 + 60 * silang} stroke={C.merah} strokeWidth={8} strokeLinecap="round" />
+          <line x1={760} y1={200} x2={760 - 70 * silang} y2={200 + 60 * silang} stroke={C.merah} strokeWidth={8} strokeLinecap="round" />
+          <T x={690} y={300} size={22} fill={C.redup}>Tanpa kabel</T>
+        </g>
+        <T x={440} y={490} size={76} fill={C.teal} bold opacity={lin(p, 0.48, 0.55)}>{tahun}</T>
+        <circle cx={440} cy={230} r={150 * temu} fill="none" stroke={C.kuning} strokeWidth={8} />
+        <line x1={440 + 106 * temu} y1={230 + 106 * temu} x2={440 + 170 * temu} y2={230 + 170 * temu} stroke={C.kuning} strokeWidth={12} strokeLinecap="round" />
+        <T x={440} y={570} size={34} fill={C.kuning} bold opacity={temu}>Akhirnya ketahuan</T>
+      </g>
+    </Kanvas>
+  );
+};
+
+const Tanah: React.FC<{ judul: string }> = ({ judul }) => (
+  <g>
+    <rect x={0} y={250} width={880} height={357} fill="rgba(139,109,75,0.28)" />
+    <line x1={0} y1={250} x2={880} y2={250} stroke={C.teal} strokeWidth={4} />
+    {[40, 100, 160, 220].map((x, i) => (
+      <rect key={x} x={x} y={190 - i * 8} width={46} height={60 + i * 8} fill="rgba(255,255,255,0.08)" stroke={C.redup} strokeWidth={2} />
+    ))}
+    {[600, 660, 720, 780].map((x, i) => (
+      <rect key={x} x={x} y={200 + i * 6} width={46} height={50 - i * 6} fill="rgba(255,255,255,0.08)" stroke={C.redup} strokeWidth={2} />
+    ))}
+    <line x1={440} y1={120} x2={440} y2={250} stroke={C.merah} strokeWidth={4} strokeDasharray="10 8" />
+    <T x={440} y={108} size={22} fill={C.merah}>Perbatasan</T>
+    <T x={130} y={286} size={22} fill={C.redup}>Berlin Barat</T>
+    <T x={720} y={286} size={22} fill={C.redup}>Berlin Timur</T>
+    <T x={440} y={60} size={34} bold>{judul}</T>
+  </g>
+);
+
+export const TerowonganGali: React.FC = () => {
+  const { f, p } = useAdegan();
+  const masuk = sel(p, 0, 0.08);
+  const gali = sel(p, 0.1, 0.92);
+  const kepala = lerp(95, 690, gali);
+  return (
+    <Kanvas>
+      <g opacity={masuk}>
+        <Tanah judul="Terowongan Berlin, 1955" />
+        <rect x={80} y={250} width={30} height={190} fill="#1b1410" />
+        <line x1={95} y1={425} x2={kepala} y2={425} stroke="#8a6d4b" strokeWidth={40} strokeLinecap="round" />
+        <line x1={95} y1={425} x2={kepala} y2={425} stroke="#1b1410" strokeWidth={28} strokeLinecap="round" />
+        <rect x={kepala - 26} y={401} width={52} height={48} rx={8} fill={C.kuning} stroke="#ffffff" strokeWidth={2} />
+        <g transform={`translate(${kepala + 34} 425) rotate(${f * 18})`}>
+          {[0, 60, 120].map((a) => (
+            <line key={a} x1={-16} y1={0} x2={16} y2={0} stroke={C.kuning} strokeWidth={6} strokeLinecap="round" transform={`rotate(${a})`} />
+          ))}
+        </g>
+        {Array.from({ length: 6 }, (_, i) => {
+          const q = (f * 0.05 + i / 6) % 1;
+          return <circle key={i} cx={kepala - 34 - q * 70} cy={425 + (i % 2 ? 1 : -1) * q * 46} r={5} fill="#8a6d4b" opacity={(1 - q) * (gali < 1 ? 1 : 0)} />;
+        })}
+        <line x1={700} y1={262} x2={700} y2={580} stroke={C.ungu} strokeWidth={6} strokeDasharray="12 8" />
+        <T x={700} y={598} size={20} fill={C.ungu}>Kabel militer Soviet</T>
+      </g>
+    </Kanvas>
+  );
+};
+
+export const TerowonganSadap: React.FC = () => {
+  const { f, t, p } = useAdegan();
+  const masuk = sel(p, 0, 0.08);
+  const pasang = sel(p, 0.08, 0.24);
+  const alir = lin(p, 0.24, 0.32);
+  const bulan = Math.floor(11 * lin(p, 0.25, 0.97));
+  return (
+    <Kanvas>
+      <g opacity={masuk}>
+        <Tanah judul="Menyadap kabel Soviet" />
+        <line x1={95} y1={425} x2={690} y2={425} stroke="#8a6d4b" strokeWidth={40} strokeLinecap="round" />
+        <line x1={95} y1={425} x2={690} y2={425} stroke="#1b1410" strokeWidth={28} strokeLinecap="round" />
+        <line x1={700} y1={262} x2={700} y2={580} stroke={C.ungu} strokeWidth={6} />
+        {Array.from({ length: 5 }, (_, i) => {
+          const q = (t * 0.7 + i / 5) % 1;
+          return <circle key={i} cx={700} cy={280 + q * 145} r={6} fill={C.ungu} />;
+        })}
+        <g transform={`translate(700 425) scale(${pasang})`}>
+          <rect x={-18} y={-18} width={36} height={36} rx={8} fill={C.cyan} />
+          <line x1={-18} y1={0} x2={-40} y2={0} stroke={C.cyan} strokeWidth={5} />
+        </g>
+        {Array.from({ length: 6 }, (_, i) => {
+          const q = (t * 0.6 + i / 6) % 1;
+          return <circle key={i} cx={680 - q * 520} cy={425} r={7} fill={C.cyan} opacity={alir} />;
+        })}
+        <rect x={30} y={365} width={130} height={120} rx={12} fill="rgba(255,255,255,0.06)" stroke={C.cyan} strokeWidth={4} />
+        {[75, 125].map((x) => (
+          <g key={x} transform={`translate(${x} 425) rotate(${f * 6})`}>
+            <circle r={20} fill="none" stroke={C.cyan} strokeWidth={4} />
+            {[0, 120, 240].map((a) => (
+              <line key={a} x1={0} y1={0} x2={0} y2={-18} stroke={C.cyan} strokeWidth={4} transform={`rotate(${a})`} />
+            ))}
+          </g>
+        ))}
+        <T x={95} y={510} size={20} fill={C.cyan}>Ruang sadap</T>
+        {Array.from({ length: 11 }, (_, i) => (
+          <rect key={i} x={90 + i * 62} y={540} width={52} height={26} rx={6} fill={i < bulan ? C.cyan : "rgba(255,255,255,0.1)"} />
+        ))}
+        <T x={440} y={596} size={22} fill={C.redup}>{`${bulan} dari 11 bulan`}</T>
+      </g>
+    </Kanvas>
+  );
+};
+
+export const MataMata: React.FC = () => {
+  const { t, p } = useAdegan();
+  const masuk = sel(p, 0, 0.08);
+  const e = sel(p, 0.15, 0.62);
+  const mata = sel(p, 0.66, 0.78);
+  const ex = lerp(200, 650, e);
+  const ey = 330 - Math.sin(e * Math.PI) * 130;
+  const lihat = Math.sin(t * 3) * 8 * mata;
+  return (
+    <Kanvas>
+      <g opacity={masuk}>
+        <rect x={60} y={190} width={190} height={230} fill="rgba(255,255,255,0.05)" stroke={C.teks} strokeWidth={4} />
+        <T x={155} y={174} size={22}>Dinas Inggris</T>
+        <Orang x={155} y={372} skala={0.8} warna={C.cyan} />
+        <T x={155} y={452} size={20} fill={C.cyan}>Mata-mata di dalam</T>
+        <rect x={630} y={190} width={190} height={230} fill="rgba(255,255,255,0.05)" stroke={C.ungu} strokeWidth={4} />
+        <T x={725} y={174} size={22} fill={C.ungu}>Soviet</T>
+        <g transform={`translate(${ex} ${ey})`} opacity={lin(p, 0.12, 0.18) * (1 - lin(p, 0.62, 0.7))}>
+          <rect x={-24} y={-16} width={48} height={32} rx={4} fill={C.kuning} />
+          <polyline points="-24,-16 0,4 24,-16" fill="none" stroke="#3a2a1a" strokeWidth={3} />
+        </g>
+        <g transform="translate(725 300)" opacity={mata}>
+          <ellipse rx={56} ry={30} fill="none" stroke={C.teal} strokeWidth={5} />
+          <circle cx={lihat} r={15} fill={C.teal} />
+        </g>
+        <T x={725} y={366} size={26} fill={C.teal} bold opacity={mata}>Sudah tahu</T>
+        <line x1={90} y1={540} x2={790} y2={540} stroke="#8a6d4b" strokeWidth={14} strokeLinecap="round" />
+        <circle cx={90} cy={540} r={10 + 6 * Math.abs(Math.sin(t * 4))} fill={C.kuning} opacity={mata} />
+        <T x={90} y={584} size={22} fill={C.kuning} opacity={mata} anchor="start">sejak awal terowongan</T>
+      </g>
+    </Kanvas>
+  );
+};
+
+const IkonMik: React.FC<{ c: string }> = ({ c }) => (
+  <g fill="none" stroke={c} strokeWidth={4} strokeLinecap="round">
+    <rect x={-9} y={-20} width={18} height={26} rx={9} />
+    <path d="M -16 0 C -16 18 16 18 16 0" />
+    <line x1={0} y1={14} x2={0} y2={24} />
+  </g>
+);
+const IkonKamera: React.FC<{ c: string }> = ({ c }) => (
+  <g fill="none" stroke={c} strokeWidth={4} strokeLinecap="round">
+    <rect x={-20} y={-14} width={40} height={28} rx={6} />
+    <circle r={8} />
+  </g>
+);
+const IkonChat: React.FC<{ c: string }> = ({ c }) => (
+  <g fill="none" stroke={c} strokeWidth={4} strokeLinejoin="round">
+    <path d="M -20 -14 H 20 V 10 H -4 L -14 20 V 10 H -20 Z" />
+  </g>
+);
+
+export const PonselDiambilAlih: React.FC = () => {
+  const { t, p } = useAdegan();
+  const masuk = sel(p, 0, 0.08);
+  const jari = sel(p, 0.05, 0.15);
+  const silang = lin(p, 0.18, 0.28);
+  const e = sel(p, 0.3, 0.5);
+  const infeksi = sel(p, 0.5, 0.58);
+  const warna = infeksi > 0.5 ? C.merah : C.cyan;
+  const ikon = [
+    { y: 225, I: IkonMik },
+    { y: 300, I: IkonKamera },
+    { y: 375, I: IkonChat },
+  ];
+  return (
+    <Kanvas>
+      <g opacity={masuk}>
+        <rect x={690} y={230} width={130} height={90} rx={8} fill="rgba(167,139,250,0.1)" stroke={C.ungu} strokeWidth={5} />
+        <rect x={670} y={326} width={170} height={12} rx={6} fill={C.ungu} />
+        <T x={755} y={372} size={22} fill={C.ungu}>Pihak lain</T>
+        <rect x={360} y={130} width={160} height={330} rx={26} fill="rgba(255,255,255,0.04)" stroke={warna} strokeWidth={6} />
+        <rect x={420} y={142} width={40} height={6} rx={3} fill={warna} opacity={0.6} />
+        <rect x={372} y={160 + ((t * 1.5) % 1) * 270} width={136} height={4} fill={C.merah} opacity={infeksi * 0.8} />
+        <g opacity={jari * (1 - infeksi)} transform="translate(160 330)">
+          <path d="M -14 40 V -10 a 14 14 0 0 1 28 0 V 14 l 22 8 V 54 H -14 Z" fill="none" stroke={C.redup} strokeWidth={5} strokeLinejoin="round" />
+          <line x1={-50} y1={-40} x2={-50 + 100 * silang} y2={-40 + 100 * silang} stroke={C.merah} strokeWidth={8} strokeLinecap="round" />
+          <line x1={50} y1={-40} x2={50 - 100 * silang} y2={-40 + 100 * silang} stroke={C.merah} strokeWidth={8} strokeLinecap="round" />
+          <T x={0} y={100} size={22} fill={C.merah} opacity={silang}>Tidak ada klik</T>
+        </g>
+        <g transform={`translate(${lerp(690, 540, e)} 300)`} opacity={e > 0 && e < 1 ? 1 : 0}>
+          <rect x={-24} y={-16} width={48} height={32} rx={4} fill="none" stroke={C.redup} strokeWidth={4} strokeDasharray="6 5" />
+          <polyline points="-24,-16 0,4 24,-16" fill="none" stroke={C.redup} strokeWidth={4} strokeDasharray="6 5" />
+        </g>
+        <T x={440} y={92} size={42} fill={C.merah} bold opacity={infeksi}>Tanpa klik</T>
+        {ikon.map(({ y, I }, k) => {
+          const q = (t * 0.8 + k / 3) % 1;
+          return (
+            <g key={y}>
+              <line x1={520} y1={y} x2={690} y2={y} stroke={C.merah} strokeWidth={3} strokeDasharray="8 8" opacity={infeksi * 0.5} />
+              <g transform={`translate(${530 + q * 150} ${y})`} opacity={infeksi}>
+                <I c={C.merah} />
+              </g>
+            </g>
+          );
+        })}
+      </g>
+    </Kanvas>
+  );
+};
+
+export const DaftarNomor: React.FC = () => {
+  const f = useCurrentFrame();
+  const masuk = useProgres(0, 20);
+  const tinggi = 64;
+  const geser = f * 2.4;
+  const awal = Math.floor(geser / tinggi);
+  const sisa = geser % tinggi;
+  return (
+    <Kanvas>
+      <defs>
+        <clipPath id="klipDaftar">
+          <rect x={120} y={130} width={640} height={420} rx={14} />
+        </clipPath>
+      </defs>
+      <T x={440} y={80} size={36} bold opacity={masuk}>Daftar nomor yang bocor</T>
+      <rect x={120} y={130} width={640} height={420} rx={14} fill="rgba(255,255,255,0.04)" stroke={C.redup} strokeWidth={2} />
+      <g clipPath="url(#klipDaftar)" opacity={masuk}>
+        {Array.from({ length: 9 }, (_, i) => {
+          const idx = awal + i;
+          const y = 130 + i * tinggi - sisa + 40;
+          const dua = String((idx * 37 + 11) % 100).padStart(2, "0");
+          const tandai = idx % 6 === 0;
+          return (
+            <g key={idx}>
+              {tandai && <rect x={140} y={y - 34} width={600} height={50} rx={8} fill="rgba(255,107,107,0.14)" stroke={C.merah} strokeWidth={2} />}
+              <text x={170} y={y} fontSize={30} fill={tandai ? C.merah : C.teks} fontFamily="monospace">{`+•• ••• •••• ••${dua}`}</text>
+            </g>
+          );
+        })}
+      </g>
+      <T x={440} y={590} size={20} fill={C.redup}>Nomor disamarkan. Sumber: investigasi gabungan media, 2021</T>
+    </Kanvas>
+  );
+};
+
+export const StempelBantah: React.FC = () => {
+  const { p } = useAdegan();
+  const jatuh = sel(p, 0.1, 0.28);
+  const skala = lerp(3, 1, jatuh);
+  const getar = p > 0.28 && p < 0.38 ? Math.sin(p * 400) * 6 : 0;
+  const teks = sel(p, 0.45, 0.6);
+  return (
+    <Kanvas>
+      <rect x={120} y={110} width={640} height={380} rx={14} fill="rgba(255,255,255,0.04)" stroke={C.redup} strokeWidth={2} />
+      {[0, 1, 2, 3, 4].map((i) => (
+        <text key={i} x={170} y={170 + i * 70} fontSize={30} fill="rgba(255,255,255,0.35)" fontFamily="monospace">{`+•• ••• •••• ••${(i * 37 + 11) % 100}`}</text>
+      ))}
+      <g transform={`translate(${440 + getar} 300) rotate(-12) scale(${skala})`} opacity={jatuh}>
+        <rect x={-220} y={-62} width={440} height={124} rx={14} fill="rgba(255,107,107,0.14)" stroke={C.merah} strokeWidth={10} />
+        <T x={0} y={26} size={80} fill={C.merah} bold>DIBANTAH</T>
+      </g>
+      <T x={440} y={550} size={30} opacity={teks}>NSO membantah itu daftar target</T>
+    </Kanvas>
+  );
+};
+
+export const AjakanBerlangganan: React.FC = () => {
+  const f = useCurrentFrame();
+  const t = f / FPS;
+  const masuk = useProgres(0, 20);
+  const tekan = interpolate(t, [1.5, 1.7], [0, 1], klem);
+  const riak = interpolate(t, [1.5, 2.0], [0, 1], klem);
+  const siklus = Math.max(0, t - 2.0);
+  const amp = tekan > 0.5 ? Math.max(0, 1 - (siklus % 2) / 1.2) : 0;
+  const goyang = Math.sin(siklus * 18) * 16 * amp;
+  const warnaTombol = tekan > 0.5 ? "#555b66" : "#ff4d4d";
+  const warnaBel = tekan > 0.5 ? C.kuning : C.redup;
+  return (
+    <Kanvas>
+      <g opacity={masuk} transform={`translate(0 ${(1 - masuk) * 20})`}>
+        <rect x={340} y={70} width={200} height={140} rx={38} fill="#ff4d4d" />
+        <polygon points="418,108 418,172 474,140" fill="#ffffff" />
+        <T x={440} y={290} size={54} bold>Yakali Lu Tau</T>
+        <T x={440} y={338} size={32} fill={C.teal}>@yakalilutau</T>
+        <rect x={230} y={392} width={320} height={86} rx={43} fill={warnaTombol} />
+        <circle cx={390} cy={435} r={riak * 150} fill="none" stroke="#ffffff" strokeWidth={4} opacity={(1 - riak) * 0.6 * (tekan > 0 ? 1 : 0)} />
+        <T x={390} y={447} size={34} bold>Berlangganan</T>
+        <g transform={`translate(650 436) rotate(${goyang} 0 -30)`}>
+          <path d="M -28 16 C -28 -6 -22 -38 0 -40 C 22 -38 28 -6 28 16 L 38 28 H -38 Z" fill={tekan > 0.5 ? "rgba(255,209,102,0.25)" : "none"} stroke={warnaBel} strokeWidth={5} strokeLinejoin="round" />
+          <circle cx={0} cy={40} r={8} fill={warnaBel} />
+        </g>
+        {amp > 0.05 && (
+          <g stroke={C.kuning} strokeWidth={5} strokeLinecap="round" fill="none" opacity={amp}>
+            <path d="M 600 400 Q 588 436 600 472" />
+            <path d="M 700 400 Q 712 436 700 472" />
+          </g>
+        )}
+      </g>
+    </Kanvas>
+  );
+};
+
+export const KartuDisclaimer: React.FC = () => {
+  const f = useCurrentFrame();
+  const t = f / FPS;
+  const masuk = useProgres(0, 20);
+  const q = (t * 0.8) % 1;
+  return (
+    <Kanvas>
+      <g opacity={masuk}>
+        <circle cx={440} cy={290} r={60 + q * 90} fill="none" stroke={C.teal} strokeWidth={4} opacity={(1 - q) * 0.6} />
+        <circle cx={440} cy={290} r={120} fill="rgba(77,208,225,0.08)" stroke={C.teal} strokeWidth={6} />
+        <circle cx={440} cy={236} r={11} fill={C.teal} />
+        <rect x={428} y={262} width={24} height={78} rx={10} fill={C.teal} />
+        <T x={440} y={470} size={34} bold>Catatan penting</T>
+        <T x={440} y={512} size={24} fill={C.redup}>Edukasi, bukan nasihat hukum</T>
+      </g>
+    </Kanvas>
+  );
+};

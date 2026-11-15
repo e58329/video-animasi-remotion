@@ -77,7 +77,7 @@ export const Video: React.FC<{ data: TopikData }> = ({ data }) => {
           ) : null}
           {sc.fokus ? <Fokus teks={sc.fokus} dur={jadwal[i].dur} /> : null}
           {sc.angka ? <Angka {...sc.angka} dur={jadwal[i].dur} /> : null}
-          <Subtitle kata={sc.kata} />
+          {sc.kata && sc.kata.length > 0 ? <Subtitle kata={sc.kata} /> : null}
         </Sequence>
       ))}
 

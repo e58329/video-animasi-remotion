@@ -1,0 +1,11 @@
+## Prolog
+ajakan-berlangganan | Selamat datang di Yakali Lu Tau, channel yang membongkar cara kerja dunia, satu topik tiap video.
+ajakan-berlangganan | Kalau kamu suka topik yang jarang dibahas serius, berlangganan di @yakalilutau dan nyalakan lonceng.
+ajakan-berlangganan | Sekarang, kita mulai.
+## Disclaimer
+kartu-disclaimer | Sebelum mulai, satu hal penting. Video ini untuk edukasi dan hiburan, bukan nasihat hukum, medis, atau keuangan.
+kartu-disclaimer | Informasi bersumber dari data publik yang bisa berubah. Sumbernya ada di deskripsi video, dan kalau ada kekeliruan, tulis di komentar.
+## Penutup
+ajakan-suka | Kalau video ini menambah wawasanmu, tekan suka dan bagikan ke temanmu.
+ajakan-komentar | Menurutmu, topik apa yang paling pantas kita bongkar berikutnya? Tulis di kolom komentar.
+ajakan-berlangganan | Berlangganan Yakali Lu Tau di @yakalilutau supaya tidak ketinggalan. Sampai jumpa.

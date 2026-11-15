@@ -1,0 +1,20 @@
+{
+  "jenis": "short",
+  "nama": "sadap-reels",
+  "judul": "Lebih dari 180 Tahun Penyadapan, Dirangkum Singkat",
+  "cta": "Video lengkapnya ada di YouTube Yakali Lu Tau. Berlangganan di @yakalilutau dan nyalakan lonceng.",
+  "scenes": [
+    {"visual": "garis-waktu-sadap", "teks": "Lebih dari 180 tahun penyadapan, dalam satu video pendek."},
+    {"visual": "telegraf", "teks": "Tahun 1844, telegraf. Pesan berjalan lewat kabel."},
+    {"visual": "telegraf-sadap", "teks": "Siapa pun yang menyentuh kabel itu bisa ikut membaca."},
+    {"visual": "telegraf-dua-pihak", "teks": "Di Perang Saudara Amerika, pihak-pihak yang bertikai saling menyadap telegraf."},
+    {"visual": "berbagi-intelijen", "teks": "Tahun 1946, Amerika dan Inggris berbagi intelijen sinyal. Cikal bakal Five Eyes."},
+    {"visual": "terowongan-gali", "teks": "Tahun 1955, terowongan rahasia di bawah Berlin menyadap kabel Soviet."},
+    {"visual": "kabel-laut", "teks": "Tahun 1971, kapal selam menempelkan penyadap ke kabel di dasar laut."},
+    {"visual": "menara-palsu", "teks": "Lalu datang menara seluler palsu yang menangkap ponsel di sekitarnya."},
+    {"visual": "penyadapan-massal", "teks": "Tahun 2013, Edward Snowden membongkar penyadapan massal lewat kabel serat optik."},
+    {"visual": "ponsel-diambil-alih", "teks": "Sejak 2016, spyware komersial seperti Pegasus terungkap bisa mengambil alih ponsel tanpa klik."},
+    {"visual": "ai-sadap", "teks": "Kini kecerdasan buatan mengubah suara jadi teks dan mengenali wajah dalam skala besar."},
+    {"visual": "garis-waktu-sadap", "teks": "Teknologinya berubah total. Pertanyaannya tetap sama: siapa yang mengawasi para pengawas?"}
+  ]
+}

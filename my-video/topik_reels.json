@@ -1,0 +1,36 @@
+{
+  "jenis": "short",
+  "nama": "binance-reels-2d",
+  "judul": "Lamaran Kerja Palsu yang Membuka Jalan ke Binance",
+  "cta": "Video lengkapnya ada di YouTube Yakali Lu Tau. Berlangganan di @yakalilutau dan nyalakan lonceng.",
+  "scenes": [
+    {
+      "visual": "lowongan-palsu-2d",
+      "teks": "Kamu dapat tawaran kerja bagus. Lalu disuruh mengunduh tugas coding."
+    },
+    {
+      "visual": "rekruter-palsu-2d",
+      "teks": "Menurut laporan Binance, begitulah salah satu insinyurnya didekati. 'HR' palsu menunjukkan akun yang tampak nyata."
+    },
+    {
+      "visual": "ceo-palsu-chat-2d",
+      "teks": "Lalu 'CEO' palsu menyuruhnya mengunduh tugas coding lewat chat."
+    },
+    {
+      "visual": "tugas-berisi-malware-2d",
+      "teks": "Isinya malware, yaitu program jahat yang diam-diam menguasai laptop."
+    },
+    {
+      "visual": "perangkat-terpisah-2d",
+      "teks": "Maksudnya begini: kalau ada yang menyuruh menjalankan kode asing, jangan di laptop kerja. Uji di perangkat terpisah."
+    },
+    {
+      "visual": "cek-resmi-2d",
+      "teks": "Dan cek perusahaannya lewat jalur resmi."
+    },
+    {
+      "visual": "risiko-bukan-jaminan-2d",
+      "teks": "Ingat, tidak ada yang 100 persen aman. Langkah ini mengurangi risiko, bukan menjaminnya."
+    }
+  ]
+}

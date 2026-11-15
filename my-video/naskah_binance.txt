@@ -1,0 +1,106 @@
+# judul: Bagaimana Binance Bisa Dibobol? Kronologi Pencurian Kripto Terbesar Sepanjang Sejarah
+
+## Hook
+brankas-kosong | Enam miliar dolar lebih. Hilang dari bursa kripto terbesar di dunia, dalam satu malam. | angka:6:miliar dolar lebih:hilang dalam satu malam
+kunci-utuh | Anehnya, hasil penyelidikan awal menyebut tidak ada satu pun kunci rahasia yang bocor.
+lowongan-palsu | Lalu bagaimana uang sebanyak itu bisa keluar? Semuanya berawal dari lamaran kerja palsu.
+laptop-diambil-alih | Dan penyerang tidak berhenti di satu laptop. Mereka melewati tiga laptop insinyur.
+garis-waktu-binance | Ini kronologinya, langkah demi langkah, dengan bahasa yang mudah dipahami.
+
+@PROLOG
+
+@DISCLAIMER
+
+## Jawabannya dulu
+jaringan | Jawaban singkatnya: yang ditembus bukan jaringan blockchain-nya. Blockchain bekerja sebagaimana mestinya.
+laptop-diambil-alih | Yang ditembus adalah manusia dan komputer kerja di dalam Binance.
+penanda-tangan-mesin | Lewat situ, penyerang menumpang sistem resmi yang menandatangani transaksi, lalu menyuruhnya meneken pencurian.
+token-kartu-akses | Ibaratnya, pencuri tidak membobol brankas. Ia mencuri kartu akses petugas, lalu masuk lewat pintu depan.
+garis-waktu-binance | Semua ini menurut laporan Binance sendiri. Penyelidikan independen masih berjalan, jadi detailnya bisa berubah.
+garis-waktu-binance | Sekarang kita bedah pelan-pelan.
+
+## Dua laci milik bursa
+bursa-dua-laci | Bayangkan bursa kripto seperti toko dengan dua tempat simpan: brankas besar dan laci kasir.
+bursa-dua-laci | Laci kasir itu disebut hot wallet, yaitu dompet yang tersambung internet supaya penarikan pelanggan cepat.
+mata-mata | Karena paling mudah diakses, laci kasir juga paling menggoda bagi pencuri.
+mpc-kunci-terpecah | Binance memakai teknik bernama MPC. Kunci dompet dipecah ke beberapa pihak, jadi tidak ada satu kunci utuh.
+penanda-tangan-mesin | Tapi setiap transaksi tetap harus ditandatangani. Tugas itu dikerjakan layanan otomatis bernama signing service.
+penanda-tangan-mesin | Layanan ini meneken apa yang diminta sesuai aturan. Kalau peminta tampak seperti orang dalam, ia ikut meneken.
+
+## Juni: paket palsu
+paket-palsu-iklan | Juni. Seorang insinyur DevOps, yang mengurus infrastruktur wallet, mencari alat bantu coding berbasis AI.
+paket-palsu-iklan | Menurut sumber yang dikutip Reuters, versi palsu muncul di atas yang asli lewat iklan pencarian.
+terminal | Paket itu sudah dimodifikasi. Binance mengaku mendeteksinya, mengganti perangkat, dan mengganti semua kredensial.
+mata-mata | Tapi penyerang sempat mempelajari peran insinyur itu dan rekan-rekan yang memegang infrastruktur wallet.
+mata-mata | Mereka jadi tahu pintu mana yang paling penting.
+
+## September: lowongan palsu
+lowongan-palsu | September. Insinyur lain dihubungi seorang 'direktur proyek' lewat platform lowongan kerja yang sah.
+rekruter-palsu | Di wawancara pertama, 'HR' palsu menunjukkan akun media sosial berisi foto dan video pribadi, supaya tampak nyata.
+ceo-palsu-chat | Wawancara kedua lewat aplikasi chat. Kali ini yang tampil 'CEO' dari perusahaan palsu itu.
+tugas-berisi-malware | Di akhir, sang 'CEO' menyuruh korban mengunduh tugas coding. Isinya malware, yaitu program jahat.
+terminal | Kenapa ampuh? Pelamar memang diharapkan mengerjakan tugas, dan ia mengerjakannya di laptop kerja.
+terminal | Saat disiapkan, kode itu mengganti satu komponen alat pengembangan yang sah dengan versi berbahaya.
+tugas-berisi-malware | Versi berbahaya itu menghubungi server penyerang dan menyembunyikan skripnya. Alat keamanan Binance awalnya tidak mendeteksinya.
+
+## Oktober: pindah laptop
+laptop-diambil-alih | 20 Oktober. Dari laptop itu, dibantu sebuah alat AI internal, penyerang mengambil alih dua laptop insinyur lain.
+token-kartu-akses | Di salah satu laptop ada token izin untuk menjalankan container. Token itu seperti kartu akses digital.
+container-dijalankan | Container adalah ruang program terisolasi di server. Dengan izin itu, program bisa dijalankan di dalam sistem perusahaan.
+token-kartu-akses | Penyerang kini memegang kartu akses itu. Sembilan hari kemudian, kartu itu dipakai.
+
+## 29 Oktober: dua puluh menit
+garis-waktu-binance | 29 Oktober, malam hari. Dengan kredensial curian, penyerang menjalankan container, dan skrip di dalamnya menghubungi layanan penanda tangan.
+penanda-tangan-mesin | Layanan itu menandatangani permintaan penyerang, termasuk transaksi di luar jalur penarikan yang normal.
+koin | Yang pertama pindah: lebih dari 233 juta XRP dari lima hot wallet ke satu alamat, hanya dalam empat menit. | angka:4:menit:233 juta XRP berpindah
+jaringan | Lalu giliran Solana, Bitcoin, Tron, Ethereum, dan jaringan lain. Totalnya sepuluh blockchain dikuras. | angka:10:blockchain:dikuras
+dompet-meminjam-kode | Di Ethereum dipakai fitur EIP-7702. Singkatnya, dompet biasa boleh meminjam kode program sementara, dan penyerang memanfaatkannya.
+dompet-meminjam-kode | Layanan penanda tangan meneken lima puluh transaksi untuk menyiapkan pinjaman kode itu. | angka:50:transaksi:ditandatangani untuk persiapan
+radar | Peringatan internal untuk transfer besar berbunyi. Binance menangguhkan penarikan, membekukan token, dan mencabut izin penyerang.
+garis-waktu-binance | Dalam sekitar 20 menit, sebagian besar dana sudah berpindah. Beberapa jam kemudian datang gelombang kedua di Avalanche dan Polygon. | angka:20:menit:sebagian besar dana berpindah
+
+## Mengejar uang yang kabur
+pembekuan-stablecoin | Dalam satu jam pertama, penerbit stablecoin dan jaringan membekukan sekitar dua koma delapan lima miliar dolar.
+pembekuan-stablecoin | Stablecoin adalah koin kripto yang nilainya dipatok ke dolar.
+tukar-ke-eth | Penyerang membalas: menukar stablecoin jadi ETH, aset yang tidak bisa dibekukan penerbit.
+cuci-uang-otomatis | Pencucian uangnya tampak otomatis. Elliptic menghitung sekitar 12 ribu dompet dan lebih dari 40 ribu transaksi.
+cuci-uang-otomatis | Chainalysis juga menemukan dana curian tercampur dengan dana dari peretasan Bitget bulan September.
+
+## Siapa pelakunya
+mata-mata | 31 Oktober. FBI menyebut pelakunya Korea Utara, lewat kelompok bernama TraderTraitor.
+stempel-bantah | Korea Utara membantah. Bantahan itu disampaikan lewat pernyataan di media negara pada 2 November.
+stempel-bantah | Perlu diingat, ini pernyataan penegak hukum, bukan putusan pengadilan.
+rekor-peretasan | Versi Chainalysis: curian ini setara sekitar 95 persen dari semua yang mereka hitung untuk peretas Korea Utara sampai 2025. | angka:95:persen:versi Chainalysis, setara total curian peretas Korea Utara sampai 2025
+
+## Seberapa besar
+rekor-peretasan | Rekor sebelumnya dipegang peretasan Bybit, Februari 2025, sekitar satu koma lima miliar dolar.
+rekor-peretasan | Kasus Binance lebih dari empat kali lipat besarnya.
+rekor-peretasan | Menurut DefiLlama per 4 November, kasus ini saja menyumbang sekitar 72 persen dari semua kerugian peretasan kripto 2026. | angka:72:persen lebih:dari semua kerugian peretasan kripto 2026
+
+## Nasib uang pengguna
+dana-darurat-safu | Binance menyisihkan lebih dari enam koma tiga empat miliar dolar untuk menutup kerugian, dari dana darurat SAFU, dana asuransi Futures, dan kasnya.
+dana-darurat-safu | SAFU adalah dana darurat milik Binance untuk keadaan seperti ini.
+dana-darurat-safu | Changpeng Zhao, tokoh pendiri Binance, mengatakan perusahaan tidak berutang, tidak menjual aset, dan tidak menggalang dana luar.
+penarikan-bertahap | Penarikan dibuka bertahap sejak 1 November.
+penarikan-bertahap | Sampai 2 November, pelanggan menarik bersih sekitar empat koma tujuh miliar dolar, kira-kira 3 persen aset platform.
+penarikan-bertahap | Per 4 November, Binance melaporkan 98 persen aset terdampak sudah diganti. | angka:98:persen:aset terdampak sudah diganti, menurut Binance
+garis-waktu-binance | Ingat, itu angka dari Binance sendiri. Cek laporan terbaru sebelum menyimpulkan.
+
+## Pelajaran
+mata-mata | Pelajaran terbesarnya: serangan ini mengincar manusia, bukan cuma sistem.
+laptop-diambil-alih | Dari paket palsu dan lowongan palsu, penyerang melangkah bertahap sampai ke sistem bernilai miliaran dolar.
+
+## Rangkuman
+garis-waktu-binance | Intinya: Binance dibobol lewat manusia, laptop, dan izin yang dicuri, bukan lewat blockchain.
+garis-waktu-binance | Apa yang bisa kamu lakukan? Empat langkah, lengkap dengan alasannya.
+langkah-sebar | Satu: jangan taruh semua aset di satu tempat. Maksudnya, kalau satu penyimpan bermasalah, tidak semuanya ikut terdampak.
+langkah-sebar | Menyimpan sendiri juga punya risiko, misalnya kunci hilang. Sesuaikan dengan kemampuan kamu.
+langkah-tautan | Dua: waspadai pesan yang mengaku soal pemulihan dana. Penipu biasanya muncul setiap ada peretasan besar.
+langkah-tautan | Maksudnya, jangan klik tautan dari pesan tak dikenal. Buka aplikasi resmi lewat jalur kamu sendiri.
+langkah-update | Tiga: pasang aplikasi dan alat dari sumber resmi, bukan iklan teratas di hasil pencarian.
+langkah-update | Maksudnya, iklan bisa dibuat menyerupai yang asli. Periksa alamat situsnya sebelum mengunduh.
+lowongan-palsu | Empat: kalau kamu bekerja di teknologi, waspadai tawaran kerja yang menyuruh menjalankan kode asing di laptop kerja.
+lowongan-palsu | Maksudnya, sebaiknya uji kode dari orang tak dikenal di perangkat terpisah, bukan di laptop kerja.
+risiko-bukan-jaminan | Dan ingat, tidak ada yang 100 persen aman. Langkah-langkah ini mengurangi risiko, bukan menjaminnya.
+
+@CTA
